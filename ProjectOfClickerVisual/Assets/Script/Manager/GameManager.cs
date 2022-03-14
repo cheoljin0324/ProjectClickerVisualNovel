@@ -315,8 +315,31 @@ public class GameManager : MonoSingleton<GameManager>
             }
             else
             {
-                coinTxt.text = renderNum.ToString()  + "." + defalt + unit[stack];
-                break;
+                if (defalt > 100)
+                {
+                    coinTxt.text = renderNum.ToString() + "." + defalt + unit[stack];
+                    break;
+                }
+                else if (defalt > 10)
+                {
+                    coinTxt.text = renderNum.ToString() + "." + "0" + defalt + unit[stack];
+                    break;
+                }
+                else if (defalt < 10)
+                {
+                    coinTxt.text = renderNum.ToString() + "." + "00" + defalt + unit[stack];
+                    break;
+                }
+                else if (defalt == 100)
+                {
+                    coinTxt.text = renderNum.ToString() + "." + "1" + unit[stack];
+                    break;
+                }
+                else if (defalt == 10)
+                {
+                    coinTxt.text = renderNum.ToString() + "." + "01" + unit[stack];
+                    break;
+                }
             }
             
         }
