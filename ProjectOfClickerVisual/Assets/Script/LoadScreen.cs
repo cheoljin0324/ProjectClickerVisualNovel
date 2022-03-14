@@ -48,8 +48,8 @@ public class LoadScreen : MonoBehaviour
     public void SetMap()
     {
         mapCanvas.gameObject.SetActive(true);
-        mainCanvasAni.transform.DOMove(new Vector3(0f, 7.7f, 0), 0.5f, false);
-        Invoke("DestMain", 0.5f);
+        mainCanvasAni.transform.DOMove(new Vector3(0f, 8.5f, 0), 1f, false);
+        Invoke("DestMain", 1f);
 
         audio.volume = GameManager.Inst.beforeAudioVolum;
     }

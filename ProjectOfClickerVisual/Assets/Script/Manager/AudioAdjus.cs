@@ -17,6 +17,7 @@ public class AudioAdjus : MonoBehaviour
 
     public void SetSoundMusic(float volum)
     {
+        GameManager.Inst.clickAct = true;
         MusicAudio.volume = volum;
     }
 

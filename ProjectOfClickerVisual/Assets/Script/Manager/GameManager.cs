@@ -239,8 +239,9 @@ public class GameManager : MonoSingleton<GameManager>
         timeInt = 0;
         audioS = 0;
         Debug.Log("offAct");
+        Debug.Log(loadaudio.volume*10);
+        Debug.Log(beforeAudioVolum);
         loadaudio.volume = beforeAudioVolum;
-
         Debug.Log(beforeAudioVolum);
     }
 
