@@ -73,6 +73,7 @@
     <Compile Include="Assets\Script\MoneyErrorMessae.cs" />
     <Compile Include="Assets\Script\TMP.cs" />
     <Compile Include="Assets\Script\Manager\CreateQuest.cs" />
+    <Compile Include="Assets\Script\PoolManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
