@@ -48,6 +48,41 @@ public class PoolManager : MonoBehaviour
         }
     }
 
+    public GameObject PoolPlayObject(ObjectType type)
+    {
+        PoolInfo selected = GetPoolObjectOfType(type);
+        List<GameObject> pool = selected.pool;
+
+        GameObject onInstance = null;
+
+        if (pool.Count > 0)
+        {
+
+            onInstance = pool[pool.Count - 1];
+            pool.Remove(onInstance);
+        }
+        else
+        {
+            onInstance = Instantiate(selected.Prfab, selected.container.transform);
+            
+        }
+        return onInstance;
+    }
+
+    public void CoolObject(GameObject ob, ObjectType type)
+    {
+        ob.SetActive(false);
+        ob.transform.position = defaltPos;
+
+        PoolInfo selected = GetPoolObjectOfType(type);
+        List<GameObject> pool = selected.pool;
+
+        if (!pool.Contains(ob))
+        {
+            pool.Add(ob);
+        }
+    }
+
     public PoolInfo GetPoolObjectOfType(ObjectType type)
     {
         for(int i = 0; i<listofPool.Count; i++)

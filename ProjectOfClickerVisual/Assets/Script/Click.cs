@@ -7,6 +7,8 @@ public class Click : MonoBehaviour
 {
     public float destroyTime = 1f;
     SpriteRenderer sprite;
+    SpriteRenderer onSprite;
+    SpriteRenderer OffSprite;
 
     private void Start()
     {
@@ -14,13 +16,22 @@ public class Click : MonoBehaviour
         gameObject.transform.DOScale(new Vector3(0.3f, 0.3f, 0), 0.5f);
 
         sprite = GetComponent<SpriteRenderer>();
-        sprite.material.DOFade(0, 0.8f);
-        
+        onSprite = sprite;
+        OffSprite = sprite;
 
-        Invoke("DestroyObject", destroyTime);
+        OffSprite.material.DOFade(0, 0.8f);
+        sprite.material.DOFade(0, 0.8f);
+
+        StartCoroutine(FadOf(sprite));
+        
     }
-    private void DestroyObject()
+    private IEnumerator FadOf(SpriteRenderer sprite)
     {
-        Destroy(gameObject);
+        yield return new WaitForSeconds(0.8f);
+        if (sprite.material == OffSprite.material)
+        {
+            sprite.material = onSprite.material;
+        }
     }
+
 }
