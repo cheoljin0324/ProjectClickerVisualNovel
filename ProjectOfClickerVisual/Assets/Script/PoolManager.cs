@@ -48,8 +48,16 @@ public class PoolManager : MonoBehaviour
         }
     }
 
-    //public GameObject GetPoolObject(ObjectType type)
-    //{
-
-    //}
+    public PoolInfo GetPoolObjectOfType(ObjectType type)
+    {
+        for(int i = 0; i<listofPool.Count; i++)
+        {
+            if (type == listofPool[i].type)
+            {
+                return listofPool[i];
+            }
+           
+        }
+        return null;
+    }
 }
