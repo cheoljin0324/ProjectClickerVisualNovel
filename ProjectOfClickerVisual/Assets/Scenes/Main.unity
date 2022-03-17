@@ -8313,6 +8313,11 @@ MonoBehaviour:
     Prfab: {fileID: 5578351398481907037, guid: 6564fb66e3e91cc41975ed32c977a0f9, type: 3}
     container: {fileID: 611318867}
     pool: []
+  - type: 1
+    amount: 10
+    Prfab: {fileID: 7232697588819183870, guid: 389c5406057cfb94ca49b36f1752d832, type: 3}
+    container: {fileID: 584189500}
+    pool: []
 --- !u!1 &910598771
 GameObject:
   m_ObjectHideFlags: 0
@@ -12375,6 +12380,7 @@ MonoBehaviour:
   MicLevel: 1
   Rps: 0
   playerImage: {fileID: 902838552}
+  poolManager: {fileID: 903017893}
   effectTextMesh: {fileID: 7232697588819183870, guid: 389c5406057cfb94ca49b36f1752d832, type: 3}
   effectClick: {fileID: 5578351398481907037, guid: 6564fb66e3e91cc41975ed32c977a0f9, type: 3}
   audioRecorder:

@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.7289006, y: 0.14066517}
+  m_AnchoredPosition: {x: 1.0674154, y: -0.4902959}
   m_SizeDelta: {x: 2, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &7232697588819183868
@@ -185,6 +185,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movespeed: 1
   colorspeed: 1
+  inGame: 0
   coin: 0
   OutCoin: 0
   txtColor: {r: 0, g: 0, b: 0, a: 0}

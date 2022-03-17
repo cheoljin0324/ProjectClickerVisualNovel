@@ -14,7 +14,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public BigInteger plCoin = 0;
     [SerializeField]
-    private long Rpc = 0;
+    public long Rpc = 0;
     [SerializeField]
     private Text coinTxt;
 
@@ -52,6 +52,9 @@ public class GameManager : MonoSingleton<GameManager>
 
     [SerializeField]
     private Image playerImage;
+
+    [SerializeField]
+    private PoolManager poolManager;
 
     [SerializeField]
     public GameObject effectTextMesh;
@@ -172,7 +175,7 @@ public class GameManager : MonoSingleton<GameManager>
         audioSource.clip = audioRecorder[recorderStack];
         audioSource.Play();
         ClickAnimation();
-        ClickTextPrint(Rpc);
+        ClickTextPrint(Rpc,ObjectType.moneyText);
         ClickPrint();
         UpdateText();
 
@@ -254,22 +257,45 @@ public class GameManager : MonoSingleton<GameManager>
 
     }
 
-    private void ClickTextPrint(long coin)
+    private void ClickTextPrint(long coin,ObjectType type)
     {
-        GameObject MeshText = Instantiate(effectTextMesh);
+        GameObject MeshText = poolManager.PoolPlayObject(type);
+        MeshText.gameObject.SetActive(true);
         
-
-        MeshText.GetComponent<TMP>().coin = coin;
 
         UnityEngine.Vector3  mouspos;
         mouspos = Input.mousePosition;
         transpos = Camera.main.ScreenToWorldPoint(mouspos);
 
+        MeshText.transform.position = new UnityEngine.Vector3(transpos.x, transpos.y, 0);
+
         if (recorderStack == 15)
         {
             MeshText.transform.localScale = new UnityEngine.Vector3(1.5f, 1.5f, 0);
         }
+
+        StartCoroutine(MeshTextCool(MeshText,type));
      
+    }
+
+
+    public void TextAnimating(TextMeshPro meshText, float colorspeed)
+    {
+        meshText.DOColor(new Color(meshText.color.r, meshText.color.g, meshText.color.b, 0), colorspeed);
+        StartCoroutine(coolingObject(meshText, colorspeed));
+        
+    }
+
+    private IEnumerator coolingObject(TextMeshPro meshText,float colorspeed)
+    {
+        yield return new WaitForSeconds(colorspeed);
+        meshText.color = Color.white;
+    }
+
+    private IEnumerator MeshTextCool(GameObject MeshText,ObjectType type)
+    {
+        yield return new WaitForSeconds(1f);
+        poolManager.CoolObject(MeshText, type);
     }
 
     private void RpsTu()
