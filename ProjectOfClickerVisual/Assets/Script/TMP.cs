@@ -7,7 +7,7 @@ using TMPro;
 public class TMP : MonoBehaviour
 {
     public float movespeed = 1f;
-    public float colorspeed = 2f;
+    public float colorspeed = 4f;
     public bool inGame = false;
     TextMeshPro txt;
 

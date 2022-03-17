@@ -176,7 +176,7 @@ public class GameManager : MonoSingleton<GameManager>
         audioSource.Play();
         ClickAnimation();
         ClickTextPrint(Rpc,ObjectType.moneyText);
-        ClickPrint(ObjectType.clickEffect);
+        ClickPrint();
         UpdateText();
 
 
@@ -190,7 +190,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void tabClick()
     {
-        ClickPrint(ObjectType.clickEffect);
+        ClickPrint();
     }
 
 
@@ -200,7 +200,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (Input.GetMouseButtonUp(0))
         {
-            ClickPrint(ObjectType.clickEffect);
+            ClickPrint();
         }
 
         if (Time.time > nextTime)
@@ -282,15 +282,7 @@ public class GameManager : MonoSingleton<GameManager>
     public void TextAnimating(TextMeshPro meshText, float colorspeed)
     {
         meshText.DOColor(new Color(meshText.color.r, meshText.color.g, meshText.color.b, 0), colorspeed);
-        StartCoroutine(coolingObject(meshText, colorspeed));
         
-    }
-
-    private IEnumerator coolingObject(TextMeshPro meshText,float colorspeed)
-    {
-        yield return new WaitForSeconds(colorspeed);
-        poolManager.CoolObject(effectClick, ObjectType.moneyText);
-        meshText.color = Color.white;
     }
 
     private IEnumerator MeshTextCool(GameObject MeshText,ObjectType type)
@@ -307,7 +299,7 @@ public class GameManager : MonoSingleton<GameManager>
         
     }
 
-    private void ClickPrint(ObjectType type)
+    private void ClickPrint()
     {
         UnityEngine.Vector3 mouspos;
         mouspos = Input.mousePosition;
@@ -316,8 +308,6 @@ public class GameManager : MonoSingleton<GameManager>
         GameObject clickEffect = Instantiate(effectClick);
         clickEffect.gameObject.SetActive(true);
         clickEffect.transform.position = transpos;
-    
-
     }
 
     private void UpdateText()
