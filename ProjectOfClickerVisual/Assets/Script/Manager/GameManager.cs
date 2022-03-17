@@ -176,7 +176,7 @@ public class GameManager : MonoSingleton<GameManager>
         audioSource.Play();
         ClickAnimation();
         ClickTextPrint(Rpc,ObjectType.moneyText);
-        ClickPrint();
+        ClickPrint(ObjectType.clickEffect);
         UpdateText();
 
 
@@ -190,7 +190,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void tabClick()
     {
-        ClickPrint();
+        ClickPrint(ObjectType.clickEffect);
     }
 
 
@@ -200,7 +200,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (Input.GetMouseButtonUp(0))
         {
-            ClickPrint();
+            ClickPrint(ObjectType.clickEffect);
         }
 
         if (Time.time > nextTime)
@@ -259,7 +259,9 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void ClickTextPrint(long coin,ObjectType type)
     {
+       
         GameObject MeshText = poolManager.PoolPlayObject(type);
+        Transform txtTransform = MeshText.transform;
         MeshText.gameObject.SetActive(true);
         
 
@@ -278,6 +280,10 @@ public class GameManager : MonoSingleton<GameManager>
      
     }
 
+    public void TextSizeSet(GameObject meshText, Transform meshTransform)
+    {
+        meshText.transform.localScale = meshTransform.transform.localScale;
+    }
 
     public void TextAnimating(TextMeshPro meshText, float colorspeed)
     {
@@ -299,15 +305,18 @@ public class GameManager : MonoSingleton<GameManager>
         
     }
 
-    private void ClickPrint()
+    private void ClickPrint(ObjectType type)
     {
         UnityEngine.Vector3 mouspos;
         mouspos = Input.mousePosition;
         transpos = Camera.main.ScreenToWorldPoint(mouspos);
 
-        GameObject clickEffect = Instantiate(effectClick);
+        GameObject clickEffect = poolManager.PoolPlayObject(type);
         clickEffect.gameObject.SetActive(true);
-        clickEffect.transform.position = transpos;
+        clickEffect.transform.position = new UnityEngine.Vector3(transpos.x, transpos.y, 0);
+
+
+        StartCoroutine(MeshTextCool(clickEffect, type));
     }
 
     private void UpdateText()

@@ -7,18 +7,28 @@ public class Click : MonoBehaviour
 {
     public float destroyTime = 1f;
     SpriteRenderer sprite;
+    private bool isfirst = false;
 
     private void Start()
     {
-        transform.position = new Vector3(GameManager.Inst.transpos.x, GameManager.Inst.transpos.y, 0);
-        gameObject.transform.DOScale(new Vector3(0.3f, 0.3f, 0), 1f);
-
         sprite = GetComponent<SpriteRenderer>();
+    }
 
-        sprite.material.DOFade(0, 0.8f);
+    private void OnEnable()
+    {
+        if(isfirst == true)
+        {
+            sprite.color = new Color(1f, 1f, 1f, 1f);
+        }
+        sprite.DOFade(0, 1f);
+        gameObject.transform.localScale = new Vector3(0f, 0f, 0f);
+        transform.position = new Vector3(GameManager.Inst.transpos.x, GameManager.Inst.transpos.y, 0);
+        gameObject.transform.DOScale(new Vector3(0.3f, 0.3f, 0), 0.8f);
 
-        Destroy(gameObject, 0.8f);
-        
+        if (isfirst == false)
+        {
+            isfirst = true;
+        }
     }
 
 }

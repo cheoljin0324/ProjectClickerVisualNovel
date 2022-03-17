@@ -40,6 +40,9 @@ public class TMP : MonoBehaviour
             SetCoin();
             SetText();
             GameManager.Inst.TextAnimating(txt, colorspeed);
+            txt.color = new Color(1f, 1f, 1f, 1f);
+            txt.transform.localScale = new Vector3(1f, 1f, 1f);
+            
         }
         else
         {
@@ -52,6 +55,7 @@ public class TMP : MonoBehaviour
     {
         OutCoin = GameManager.Inst.Rpc;
     }
+
 
     public void SetText()
     {

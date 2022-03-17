@@ -59,7 +59,7 @@ public class HighLowPositionManager : MonoBehaviour
 
     private void MoveTransform()
     {
-        fiveLinPaperOb.transform.position = fiveLinPaperPos[paperPosition].position;
+        fiveLinPaperOb.transform.DOMove(new Vector3(fiveLinPaperPos[paperPosition].position.x, fiveLinPaperPos[paperPosition].position.y, fiveLinPaperPos[paperPosition].position.z), 1f, false);
         rightButton.gameObject.SetActive(true);
         leftButton.gameObject.SetActive(true);
     }
