@@ -48,6 +48,8 @@ public class UiManager : MonoBehaviour
     private void Update()
     {
         textFull.text = GameManager.Inst.plCoin.ToString();
+
+        
     }
 
     public void SetButton()
@@ -146,4 +148,6 @@ public class UiManager : MonoBehaviour
         imageoptionGameObject.gameObject.SetActive(false);
         isTrueOption = false;
     }
+
+    
 }
