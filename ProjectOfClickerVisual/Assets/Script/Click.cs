@@ -22,7 +22,7 @@ public class Click : MonoBehaviour
         OffSprite.material.DOFade(0, 0.8f);
         sprite.material.DOFade(0, 0.8f);
 
-        StartCoroutine(FadOf(sprite));
+        Destroy(gameObject, 0.8f);
         
     }
     private IEnumerator FadOf(SpriteRenderer sprite)
