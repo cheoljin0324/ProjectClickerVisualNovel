@@ -9,7 +9,7 @@ public class Click : MonoBehaviour
     SpriteRenderer sprite;
     private bool isfirst = false;
 
-    private void Start()
+    private void Awake()
     {
         sprite = GetComponent<SpriteRenderer>();
     }
@@ -20,6 +20,7 @@ public class Click : MonoBehaviour
         {
             sprite.color = new Color(1f, 1f, 1f, 1f);
         }
+
         sprite.DOFade(0, 1f);
         gameObject.transform.localScale = new Vector3(0f, 0f, 0f);
         transform.position = new Vector3(GameManager.Inst.transpos.x, GameManager.Inst.transpos.y, 0);
