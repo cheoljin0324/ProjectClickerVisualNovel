@@ -24,6 +24,8 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private RiCorderShopManager ricorderShop;
 
+
+
     public bool isTuto = false;
     
     public int RpcLevel1 = 1;
@@ -42,9 +44,19 @@ public class GameManager : MonoSingleton<GameManager>
     private float TimeLeft = 1.0f;
     private float nextTime = 0.0f;
 
-    public int PianoLevel = 1;
-    public int DrumLevel = 1;
-    public int MicLevel = 1;
+    public int pianoLevel = 0;
+    public int drumLevel = 0;
+    public int micLevel = 0;
+    public int tamLevel = 0;
+    public int flutLevel = 0;
+
+    public int pianoMoney = 1;
+    public int micMoney = 1;
+    public int drumMoney = 1;
+
+    public int pianoSpriteLevel = 0;
+    public int micSpriteLevel = 0;
+    public int drumSpriteLevel = 0;
 
 
     [SerializeField]
@@ -119,9 +131,17 @@ public class GameManager : MonoSingleton<GameManager>
         PlayerPrefs.SetInt("RpcLevel8", RpcLevel8);
         PlayerPrefs.SetInt("RpcLevel9", RpcLevel9);
         PlayerPrefs.SetInt("RpcLevel10", RpcLevel10);
-        PlayerPrefs.SetInt("MicLevel", MicLevel);
-        PlayerPrefs.SetInt("DrumLevel", DrumLevel);
-        PlayerPrefs.SetInt("PianoLevel", PianoLevel);
+        PlayerPrefs.SetInt("MicLevel", micLevel);
+        PlayerPrefs.SetInt("DrumLevel", drumLevel);
+        PlayerPrefs.SetInt("PianoLevel", pianoLevel);
+        PlayerPrefs.SetInt("PianoSpriteLevel", pianoSpriteLevel);
+        PlayerPrefs.SetInt("DrumSpriteLevel", drumSpriteLevel);
+        PlayerPrefs.SetInt("MicSpriteLevel", micSpriteLevel);
+        PlayerPrefs.SetInt("PianoMoney", pianoMoney);
+        PlayerPrefs.SetInt("DrumMoney", drumMoney);
+        PlayerPrefs.SetInt("MicMoney", micMoney);
+
+        Debug.Log("ºº¿Ã∫Í");
     }
 
     public void LoadData()
@@ -140,9 +160,16 @@ public class GameManager : MonoSingleton<GameManager>
         RpcLevel8 = PlayerPrefs.GetInt("RpcLevel8", RpcLevel8);
         RpcLevel9 = PlayerPrefs.GetInt("RpcLevel9", RpcLevel9);
         RpcLevel10 = PlayerPrefs.GetInt("RpcLevel10", RpcLevel10);
-        MicLevel = PlayerPrefs.GetInt("MicLevel", MicLevel);
-        DrumLevel = PlayerPrefs.GetInt("DrumLevel", DrumLevel);
-        PianoLevel = PlayerPrefs.GetInt("PianoLevel", PianoLevel);
+        micLevel = PlayerPrefs.GetInt("MicLevel", micLevel);
+        drumLevel = PlayerPrefs.GetInt("DrumLevel", drumLevel);
+        pianoLevel = PlayerPrefs.GetInt("PianoLevel", pianoLevel);
+        pianoSpriteLevel = PlayerPrefs.GetInt("PianoSpriteLevel", pianoSpriteLevel);
+        drumSpriteLevel = PlayerPrefs.GetInt("DrumSpriteLevel", drumSpriteLevel);
+        micSpriteLevel = PlayerPrefs.GetInt("MicSpriteLevel", micSpriteLevel);
+        pianoMoney = PlayerPrefs.GetInt("PianoMoney", pianoMoney);
+        drumMoney = PlayerPrefs.GetInt("DrumMoney", drumMoney);
+        micMoney = PlayerPrefs.GetInt("MicMoney", micMoney);
+        Debug.Log(pianoSpriteLevel);
 
     }
 
@@ -221,7 +248,7 @@ public class GameManager : MonoSingleton<GameManager>
         }
         else if(recorderStack == 15)
         {
-            Rpc = ((RpcLevel1*100 + (RpcLevel2 * 2000) + (RpcLevel3 * 3000) + (RpcLevel4 * 4000) + (RpcLevel5 * 5000) + (RpcLevel6 * 6000) + (RpcLevel7 * 7000) + (RpcLevel8 * 8000) + (RpcLevel9 * 9000) + (RpcLevel10 * 10000) + 10) * 6 + MicLevel*1000 * MicLevel)*2 ;
+            Rpc = ((RpcLevel1*100 + (RpcLevel2 * 2000) + (RpcLevel3 * 3000) + (RpcLevel4 * 4000) + (RpcLevel5 * 5000) + (RpcLevel6 * 6000) + (RpcLevel7 * 7000) + (RpcLevel8 * 8000) + (RpcLevel9 * 9000) + (RpcLevel10 * 10000) + 10) * 6 + micLevel*1000 * micLevel)*2 ;
         }
         
 
@@ -300,7 +327,7 @@ public class GameManager : MonoSingleton<GameManager>
     private void RpsTu()
     {
         
-        plCoin += 1 + (PianoLevel * PianoLevel* PianoLevel)*3;
+        plCoin += 1 + (pianoLevel * pianoLevel* pianoLevel)*3;
         UpdateText();
         
     }
