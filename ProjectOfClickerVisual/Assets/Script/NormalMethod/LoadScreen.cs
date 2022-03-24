@@ -16,6 +16,8 @@ public class LoadScreen : MonoBehaviour
     private GameObject ShopCanvas;
     [SerializeField]
     private GameObject ClothsCanvas;
+    [SerializeField]
+    private GameObject FoodCanvas;
 
     [SerializeField]
     private Button[] buttonin;
@@ -194,5 +196,28 @@ public class LoadScreen : MonoBehaviour
         RythmCanvas.SetActive(false);
         audio.volume = GameManager.Inst.beforeAudioVolum;
     }
-  
+    
+    public void SetFodd()
+    {
+        mapCanvas.gameObject.SetActive(false);
+        FoodCanvas.gameObject.SetActive(true);
+
+        mainScene = false;
+        ShopScene = true;
+
+        audio.clip = audioclip[1];
+        audio.Play();
+    }
+
+    public void OutFodd()
+    {
+        mapCanvas.gameObject.SetActive(true);
+        FoodCanvas.gameObject.SetActive(false);
+
+        mainScene = true;
+        ShopScene = false;
+
+        audio.clip = audioclip[0];
+        audio.Play();
+    }
 }

@@ -50,6 +50,12 @@ public class GameManager : MonoSingleton<GameManager>
     public int tamLevel = 0;
     public int flutLevel = 0;
 
+    public int RamanAmount = 0;
+    public int TriangleAmount = 0;
+    public int DoshiAmount = 0;
+    public int DrinkAmount = 0;
+    public int BreadAmount = 0;
+
     public int pianoMoney = 1;
     public int micMoney = 1;
     public int drumMoney = 1;
