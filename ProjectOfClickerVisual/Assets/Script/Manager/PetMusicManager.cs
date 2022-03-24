@@ -15,7 +15,7 @@ public class PetMusicManager : MonoBehaviour
     [SerializeField]
     private Sprite[] tamSprites = null;
     [SerializeField]
-    private Sprite[] FlutSprites = null;
+    private Sprite[] flutSprites = null;
 
     [Header("이미지 그룹")]
     [SerializeField]
@@ -27,7 +27,7 @@ public class PetMusicManager : MonoBehaviour
     [SerializeField]
     private Image tamImage = null;
     [SerializeField]
-    private Image FlutImage = null;
+    private Image flutImage = null;
     
     
 
@@ -35,36 +35,34 @@ public class PetMusicManager : MonoBehaviour
 
     private void  Start()
     {
-
-        Debug.Log("스프라이트레벨" + GameManager.Inst.pianoSpriteLevel);
         GameManager.Inst.LoadData();
-
-        Debug.Log(GameManager.Inst.pianoSpriteLevel);
 
         if (GameManager.Inst.pianoLevel != 0)
         {
             pianoImage.gameObject.SetActive(true);
-            pianoImage.sprite = pianoSprites[GameManager.Inst.pianoSpriteLevel];
-            
+            pianoImage.sprite = pianoSprites[GameManager.Inst.pianoSpriteLevel];       
         }
 
         if(GameManager.Inst.drumLevel != 0)
         {
             drumImage.gameObject.SetActive(true);
-            if (GameManager.Inst.drumSpriteLevel != 0)
-            {
-                drumImage.sprite = drumSprites[GameManager.Inst.drumSpriteLevel];
-            }
+            drumImage.sprite = drumSprites[GameManager.Inst.drumSpriteLevel];
         }
 
         if(GameManager.Inst.micLevel != 0)
         {
-            micImage.gameObject.SetActive(true);
-            if (GameManager.Inst.micSpriteLevel!=0)
-            {
+                micImage.gameObject.SetActive(true);
                 micImage.sprite = micSprites[GameManager.Inst.micSpriteLevel];
-
-            }
+        }
+        if(GameManager.Inst.flutLevel != 0)
+        {
+            flutImage.gameObject.SetActive(true);
+            flutImage.sprite = flutSprites[GameManager.Inst.flutSpriteLevel];
+        }
+        if(GameManager.Inst.tamLevel != 0)
+        {
+            tamImage.gameObject.SetActive(true);
+            tamImage.sprite = tamSprites[GameManager.Inst.tamSpriteLevel];
         }
 
 
@@ -98,48 +96,97 @@ public class PetMusicManager : MonoBehaviour
     }
     public void MicUpdate()
     {
-        if (GameManager.Inst.micSpriteLevel != 0)
-        {
-            pianoImage.gameObject.SetActive(true);
-        }
-
-        if (micImage.sprite != micSprites[GameManager.Inst.pianoSpriteLevel])
-        {
-            micImage.sprite = micSprites[GameManager.Inst.pianoSpriteLevel];
-        }
         GameManager.Inst.micLevel += 1;
+        if (GameManager.Inst.micLevel > 10 && GameManager.Inst.micLevel % 10 == 0)
+        {
+            GameManager.Inst.micSpriteLevel += 1;
+        }
         GameManager.Inst.plCoin -= GameManager.Inst.micMoney;
         GameManager.Inst.micMoney = (GameManager.Inst.micLevel * GameManager.Inst.micLevel * 2) + 1;
 
-        if (GameManager.Inst.drumLevel % 10 == 0)
+        if (GameManager.Inst.micSpriteLevel == 0)
         {
-            GameManager.Inst.drumSpriteLevel += 1;
+            micImage.gameObject.SetActive(true);
+            micImage.sprite = micSprites[GameManager.Inst.micSpriteLevel];
         }
+        if (micImage.sprite != micSprites[GameManager.Inst.micSpriteLevel])
+        {
+            micImage.sprite = micSprites[GameManager.Inst.micSpriteLevel];
+        }
+
+
 
         GameManager.Inst.SaveData();
     }
 
     public void DrumUpdate()
     {
-        if (GameManager.Inst.drumSpriteLevel != 0)
-        {
-            pianoImage.gameObject.SetActive(true);
-        }
-
-        if (drumImage.sprite != drumSprites[GameManager.Inst.pianoSpriteLevel])
-        {
-            drumImage.sprite = drumSprites[GameManager.Inst.pianoSpriteLevel];
-        }
         GameManager.Inst.drumLevel += 1;
+        if (GameManager.Inst.drumLevel > 10 && GameManager.Inst.drumLevel % 10 == 0)
+        {
+            GameManager.Inst.drumSpriteLevel += 1;
+        }
         GameManager.Inst.plCoin -= GameManager.Inst.drumMoney;
         GameManager.Inst.drumMoney = (GameManager.Inst.drumLevel * GameManager.Inst.drumLevel * 2) + 1;
 
-        if (GameManager.Inst.micLevel % 10 == 0)
+        if (GameManager.Inst.drumSpriteLevel == 0)
         {
-            GameManager.Inst.micSpriteLevel += 1;
+            drumImage.gameObject.SetActive(true);
+            drumImage.sprite = drumSprites[GameManager.Inst.drumSpriteLevel];
+        }
+        if (drumImage.sprite != drumSprites[GameManager.Inst.drumSpriteLevel])
+        {
+            drumImage.sprite = drumSprites[GameManager.Inst.drumSpriteLevel];
+        }
+       
+        GameManager.Inst.SaveData();
+    }
+
+    public void FlutUpdate()
+    {
+        GameManager.Inst.flutLevel += 1;
+        if (GameManager.Inst.flutLevel > 10 && GameManager.Inst.flutLevel % 10 == 0)
+        {
+            GameManager.Inst.flutSpriteLevel += 1;
+        }
+        GameManager.Inst.plCoin -= GameManager.Inst.flutMoney;
+        GameManager.Inst.flutMoney = (GameManager.Inst.flutLevel * GameManager.Inst.flutLevel * 2) + 1;
+
+        if (GameManager.Inst.flutSpriteLevel == 0)
+        {
+            flutImage.gameObject.SetActive(true);
+            flutImage.sprite = flutSprites[GameManager.Inst.flutSpriteLevel];
+        }
+        if (flutImage.sprite != flutSprites[GameManager.Inst.flutSpriteLevel])
+        {
+            flutImage.sprite = flutSprites[GameManager.Inst.flutSpriteLevel];
         }
 
         GameManager.Inst.SaveData();
     }
+
+    public void tamUpdate()
+    {
+        GameManager.Inst.tamLevel += 1;
+        if (GameManager.Inst.tamLevel > 10 && GameManager.Inst.tamLevel % 10 == 0)
+        {
+            GameManager.Inst.tamSpriteLevel += 1;
+        }
+        GameManager.Inst.plCoin -= GameManager.Inst.tamMoney;
+        GameManager.Inst.tamMoney = (GameManager.Inst.tamLevel * GameManager.Inst.tamLevel * 2) + 1;
+
+        if (GameManager.Inst.tamSpriteLevel == 0)
+        {
+            tamImage.gameObject.SetActive(true);
+            tamImage.sprite = tamSprites[GameManager.Inst.tamSpriteLevel];
+        }
+        if (tamImage.sprite != tamSprites[GameManager.Inst.tamSpriteLevel])
+        {
+            tamImage.sprite = tamSprites[GameManager.Inst.tamSpriteLevel];
+        }
+
+        GameManager.Inst.SaveData();
+    }
+
 
 }

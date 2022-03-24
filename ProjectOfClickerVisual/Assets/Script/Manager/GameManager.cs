@@ -53,10 +53,14 @@ public class GameManager : MonoSingleton<GameManager>
     public int pianoMoney = 1;
     public int micMoney = 1;
     public int drumMoney = 1;
+    public int tamMoney = 1;
+    public int flutMoney = 1;
 
     public int pianoSpriteLevel = 0;
     public int micSpriteLevel = 0;
     public int drumSpriteLevel = 0;
+    public int tamSpriteLevel = 0;
+    public int flutSpriteLevel = 0;
 
 
     [SerializeField]
@@ -97,6 +101,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     public UnityEngine.Vector3 transpos;
 
+    public int RpsA = 1;
+
     private string[] unit = { " ","A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","W","X","Y","Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AW","AX","AY","AZ" };
 
     public void ExitGame()
@@ -134,12 +140,18 @@ public class GameManager : MonoSingleton<GameManager>
         PlayerPrefs.SetInt("MicLevel", micLevel);
         PlayerPrefs.SetInt("DrumLevel", drumLevel);
         PlayerPrefs.SetInt("PianoLevel", pianoLevel);
+        PlayerPrefs.SetInt("FlutLevel", flutLevel);
+        PlayerPrefs.SetInt("TamburinLevel", tamLevel);
         PlayerPrefs.SetInt("PianoSpriteLevel", pianoSpriteLevel);
         PlayerPrefs.SetInt("DrumSpriteLevel", drumSpriteLevel);
         PlayerPrefs.SetInt("MicSpriteLevel", micSpriteLevel);
+        PlayerPrefs.SetInt("FlutSpriteLevel", flutSpriteLevel);
+        PlayerPrefs.SetInt("TamburinSpriteLevel", tamSpriteLevel);
         PlayerPrefs.SetInt("PianoMoney", pianoMoney);
         PlayerPrefs.SetInt("DrumMoney", drumMoney);
         PlayerPrefs.SetInt("MicMoney", micMoney);
+        PlayerPrefs.SetInt("FlutMoney", flutMoney);
+        PlayerPrefs.SetInt("TamBurinMoney", tamMoney);
 
         Debug.Log("ºº¿Ã∫Í");
     }
@@ -163,12 +175,18 @@ public class GameManager : MonoSingleton<GameManager>
         micLevel = PlayerPrefs.GetInt("MicLevel", micLevel);
         drumLevel = PlayerPrefs.GetInt("DrumLevel", drumLevel);
         pianoLevel = PlayerPrefs.GetInt("PianoLevel", pianoLevel);
+        flutLevel = PlayerPrefs.GetInt("FlutLevel", flutLevel);
+        tamLevel = PlayerPrefs.GetInt("TamburinLevel", tamLevel);
         pianoSpriteLevel = PlayerPrefs.GetInt("PianoSpriteLevel", pianoSpriteLevel);
         drumSpriteLevel = PlayerPrefs.GetInt("DrumSpriteLevel", drumSpriteLevel);
         micSpriteLevel = PlayerPrefs.GetInt("MicSpriteLevel", micSpriteLevel);
+        flutSpriteLevel = PlayerPrefs.GetInt("FlutSpriteLevel", flutSpriteLevel);
+        tamSpriteLevel = PlayerPrefs.GetInt("TamburinSpriteLevel", tamSpriteLevel);
         pianoMoney = PlayerPrefs.GetInt("PianoMoney", pianoMoney);
         drumMoney = PlayerPrefs.GetInt("DrumMoney", drumMoney);
         micMoney = PlayerPrefs.GetInt("MicMoney", micMoney);
+        flutMoney = PlayerPrefs.GetInt("FlutMoney", flutMoney);
+        tamMoney = PlayerPrefs.GetInt("TamBurinMoney", tamMoney);
         Debug.Log(pianoSpriteLevel);
 
     }
@@ -234,7 +252,6 @@ public class GameManager : MonoSingleton<GameManager>
         {
             nextTime = Time.time + TimeLeft;
             RpsTu();
-
 
         }
 
@@ -326,8 +343,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void RpsTu()
     {
-        
-        plCoin += 1 + (pianoLevel * pianoLevel* pianoLevel)*3;
+        RpsA = 1 + (pianoLevel * drumLevel * micLevel * flutLevel * tamLevel) * 2;
+        plCoin += RpsA;
         UpdateText();
         
     }
