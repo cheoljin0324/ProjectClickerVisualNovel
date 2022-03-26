@@ -68,6 +68,7 @@
     <Compile Include="Assets\Script\VisualNovel\DialogueData.cs" />
     <Compile Include="Assets\Script\Manager\RicorderUiManager.cs" />
     <Compile Include="Assets\Script\VisualNovel\Novel.cs" />
+    <Compile Include="Assets\Script\Manager\FoodManager.cs" />
     <Compile Include="Assets\Script\Manager\GameManager.cs" />
     <Compile Include="Assets\Script\TestCode\TestSetParant.cs" />
     <Compile Include="Assets\Script\Manager\UiManager.cs" />
@@ -81,7 +82,7 @@
     <Compile Include="Assets\Script\NormalMethod\TMP.cs" />
     <Compile Include="Assets\Script\TestCode\GenerateObjectTest.cs" />
     <Compile Include="Assets\Script\Manager\CreateQuest.cs" />
-    <Compile Include="Assets\Script\Manager\FoodManager.cs" />
+    <Compile Include="Assets\Script\Manager\ScroolFood.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
