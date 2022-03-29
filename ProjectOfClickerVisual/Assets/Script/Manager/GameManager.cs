@@ -81,7 +81,7 @@ public class GameManager : MonoSingleton<GameManager>
 
 
     [SerializeField]
-    private int Rps = 0;
+    public int Rps = 0;
 
     [SerializeField]
     private Image playerImage;

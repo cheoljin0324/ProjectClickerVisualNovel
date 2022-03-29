@@ -10,6 +10,12 @@ public class ScroolFood : MonoBehaviour
     [SerializeField]
     private Transform beforeFoodTransform;
 
+    private long ramanCharMoney = 1;
+    private long triangleMoney = 1;
+    private long doshraracMoney = 1;
+    private long breadMoney = 1;
+    private long drinkMoney = 1;
+
     private bool isScrolling = false;
 
 
@@ -31,26 +37,32 @@ public class ScroolFood : MonoBehaviour
     public void RamanChar()
     {
         GameManager.Inst.RamanAmount += 1;
+        GameManager.Inst.plCoin -= ramanCharMoney;
     }
 
     public void Triangle()
     {
         GameManager.Inst.TriangleAmount += 1;
+        GameManager.Inst.plCoin -= triangleMoney;
     }
 
     public void Doshirac()
     {
         GameManager.Inst.DoshiAmount += 1;
+        GameManager.Inst.plCoin -= doshraracMoney;
     }
 
     public void Bread()
     {
         GameManager.Inst.BreadAmount += 1;
+        GameManager.Inst.plCoin -= breadMoney;
+
     }
 
     public void Drink()
     {
         GameManager.Inst.DrinkAmount += 1;
+        GameManager.Inst.plCoin -= drinkMoney;
     }
 
 }
