@@ -53,7 +53,9 @@ public class GameManager : MonoSingleton<GameManager>
     private int audioS = 0;
 
     private float TimeLeft = 1.0f;
+    private float TimeRIg = 0.1f;
     private float nextTime = 0.0f;
+    private float andTime = 0.5f;
 
     public int pianoLevel = 0;
     public int drumLevel = 0;
@@ -78,6 +80,12 @@ public class GameManager : MonoSingleton<GameManager>
     public int drumSpriteLevel = 0;
     public int tamSpriteLevel = 0;
     public int flutSpriteLevel = 0;
+
+    public bool isRaman = false;
+    public bool isDosh = false;
+    public bool isTriangle = false;
+    public bool isDrink = false;
+    public bool isBread = false;
 
 
     [SerializeField]
@@ -229,9 +237,10 @@ public class GameManager : MonoSingleton<GameManager>
         {
             recorderStack = 0;
         }
-        clickAct = true;
-
-      
+        if (isTriangle == false)
+        {
+            clickAct = true;
+        }
             plCoin += Rpc;
         
         audioSource.clip = audioRecorder[recorderStack];
@@ -293,6 +302,16 @@ public class GameManager : MonoSingleton<GameManager>
 
         }
 
+        if(isTriangle == true)
+        {
+            if(Time.time > andTime)
+            {
+                andTime = Time.time + TimeRIg;
+                AddPlcoin();
+                Debug.Log("¿¿æ÷");
+            }
+        }
+
         if (plCoin < 0)
         {
             plCoin = 0;
@@ -334,8 +353,12 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void ClickAnimation()
     {
-        playerImage.transform.DOScale(new UnityEngine.Vector2(-1, -1), 0.5f);
-        playerImage.transform.DOScale(new UnityEngine.Vector2(1, 1), 0.5f);
+        if (clickAct == true)
+        {
+            playerImage.transform.DOScale(new UnityEngine.Vector2(-1, -1), 0.5f);
+            playerImage.transform.DOScale(new UnityEngine.Vector2(1, 1), 0.5f);
+
+        }
 
     }
 
@@ -381,7 +404,16 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void RpsTu()
     {
-        RpsA = 1 + (pianoLevel * drumLevel * micLevel * flutLevel * tamLevel) * 2;
+        if (isRaman == false)
+        {
+            RpsA = 1 + (pianoLevel * drumLevel * micLevel * flutLevel * tamLevel) * 2;
+        }
+        else if(isRaman == true)
+        {
+            RpsA = (1 + (pianoLevel * drumLevel * micLevel * flutLevel * tamLevel) * 2)*10;
+        }
+        
+        Debug.Log(RpsA);
         plCoin += RpsA;
         UpdateText();
         

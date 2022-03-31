@@ -6,21 +6,35 @@ public class FoodMethodA : MonoBehaviour
 {
     public void RamanBurf()
     {
-        GameManager.Inst.Rps=GameManager.Inst.Rps * 10;
-        GameManager.Inst.RamanAmount -= 1;
+        GameManager.Inst.isRaman = true;
         StartCoroutine("RamanBurfIn");
     }
 
     IEnumerator RamanBurfIn()
     {
         yield return new WaitForSeconds(30f);
-        StopRamanBurf();
-
-
+        RamanStopRamanBurf();
     }
 
-    void StopRamanBurf()
+    void RamanStopRamanBurf()
     {
-        GameManager.Inst.Rps = GameManager.Inst.Rps * 10;
+        GameManager.Inst.isRaman = false;
+    }
+
+    public void TriangleBurf()
+    {
+        GameManager.Inst.isTriangle = true;
+        StartCoroutine(TriangleBurfIn());
+    }
+
+    IEnumerator TriangleBurfIn()
+    {
+        yield return new WaitForSeconds(30f);
+        RamanStopRamanBurf();
+    }
+
+    public void TriangleCoroutineStop()
+    {
+        GameManager.Inst.isTriangle = false;
     }
 }
