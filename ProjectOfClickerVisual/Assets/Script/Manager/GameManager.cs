@@ -241,7 +241,17 @@ public class GameManager : MonoSingleton<GameManager>
         {
             clickAct = true;
         }
+
+        if (isDosh == false)
+        {
             plCoin += Rpc;
+        }
+        else if(isDosh == true)
+        {
+            Rpc *= 2;
+            plCoin += Rpc;
+        }
+         
         
         audioSource.clip = audioRecorder[recorderStack];
         audioSource.Play();

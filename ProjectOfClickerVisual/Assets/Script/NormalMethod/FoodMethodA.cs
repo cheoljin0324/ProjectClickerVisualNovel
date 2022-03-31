@@ -37,4 +37,19 @@ public class FoodMethodA : MonoBehaviour
     {
         GameManager.Inst.isTriangle = false;
     }
+
+    public void DoshiBurf()
+    {
+        GameManager.Inst.isDosh = true;
+
+    }
+    IEnumerator DoshBurfIn()
+    {
+        yield return new WaitForSeconds(30f);
+        DoshCoroutineStop();
+    }
+    public void DoshCoroutineStop()
+    {
+        GameManager.Inst.isDosh = false;
+    }
 }
