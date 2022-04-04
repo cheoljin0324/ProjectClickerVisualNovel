@@ -7,15 +7,15 @@ public class FoodManager : MonoBehaviour
 {
 
     [SerializeField]
-    private GameObject Raman;
+    public GameObject Raman;
     [SerializeField]
-    private GameObject Triangle;
+    public GameObject Triangle;
     [SerializeField]
-    private GameObject Doshirac;
+    public GameObject Doshirac;
     [SerializeField]
-    private GameObject Bread;
+    public GameObject Bread;
     [SerializeField]
-    private GameObject Drink;
+    public GameObject Drink;
 
 
     // Start is called before the first frame update

@@ -1125,6 +1125,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 65554260}
   m_CullTransparentMesh: 1
+--- !u!1 &65806517
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 65806518}
+  - component: {fileID: 65806519}
+  m_Layer: 0
+  m_Name: FoodManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &65806518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65806517}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1681046672}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &65806519
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 65806517}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 975f0f03a5ca8614ab966123980da75c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Raman: {fileID: 214215881}
+  Triangle: {fileID: 1571570015}
+  Doshirac: {fileID: 112924893}
+  Bread: {fileID: 1582273712}
+  Drink: {fileID: 2060837397}
 --- !u!1 &68672071
 GameObject:
   m_ObjectHideFlags: 0
@@ -3381,6 +3429,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 146585292}
   m_CullTransparentMesh: 1
+--- !u!1 &147363111
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 147363114}
+  - component: {fileID: 147363113}
+  - component: {fileID: 147363112}
+  m_Layer: 5
+  m_Name: Effect
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &147363112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147363111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.29803923}
+  m_RaycastTarget: 0
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &147363113
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147363111}
+  m_CullTransparentMesh: 1
+--- !u!224 &147363114
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 147363111}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1595034028}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -23.3, y: 178.6}
+  m_SizeDelta: {x: 1068.4, y: 1257.7}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &152045781
 GameObject:
   m_ObjectHideFlags: 0
@@ -21605,6 +21728,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3204fd891bf97841935ada3027e5b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imPactSprite: {fileID: 147363112}
+  foodManager: {fileID: 0}
+  RamanSprite: {fileID: 21300000, guid: e714b8d481f11244b8d692c9ddbcb60a, type: 3}
+  TriangleSprite: {fileID: 21300000, guid: 57ba734b9254d134a81a0e374d52c224, type: 3}
+  DoshSprite: {fileID: 21300000, guid: dd0b6f3c92feb5545ab29e2dde42a43d, type: 3}
+  ramanButton: {fileID: 214215883}
+  triangleButton: {fileID: 1571570017}
+  DoshiracButton: {fileID: 112924895}
 --- !u!1 &823647350
 GameObject:
   m_ObjectHideFlags: 0
@@ -44080,6 +44211,7 @@ RectTransform:
   - {fileID: 334544409}
   - {fileID: 269897954}
   - {fileID: 1176533833}
+  - {fileID: 147363114}
   m_Father: {fileID: 1242304169}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -46008,6 +46140,7 @@ Transform:
   - {fileID: 109604242}
   - {fileID: 1261962724}
   - {fileID: 1757010851}
+  - {fileID: 65806518}
   m_Father: {fileID: 1970472880}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -51671,6 +51804,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3204fd891bf97841935ada3027e5b1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  imPactSprite: {fileID: 147363112}
+  foodManager: {fileID: 0}
+  RamanSprite: {fileID: 21300000, guid: e714b8d481f11244b8d692c9ddbcb60a, type: 3}
+  TriangleSprite: {fileID: 21300000, guid: 57ba734b9254d134a81a0e374d52c224, type: 3}
+  DoshSprite: {fileID: 21300000, guid: dd0b6f3c92feb5545ab29e2dde42a43d, type: 3}
+  ramanButton: {fileID: 0}
+  triangleButton: {fileID: 0}
+  DoshiracButton: {fileID: 0}
 --- !u!4 &1895338445
 Transform:
   m_ObjectHideFlags: 0
