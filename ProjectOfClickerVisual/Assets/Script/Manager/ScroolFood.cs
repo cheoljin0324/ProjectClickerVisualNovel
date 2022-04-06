@@ -37,32 +37,37 @@ public class ScroolFood : MonoBehaviour
     public void RamanChar()
     {
         GameManager.Inst.RamanAmount += 1;
-        GameManager.Inst.plCoin -= ramanCharMoney;
+        GameManager.Inst.coinB -= ramanCharMoney;
+        GameManager.Inst.coinBText.text = GameManager.Inst.coinB.ToString();
     }
 
     public void Triangle()
     {
         GameManager.Inst.TriangleAmount += 1;
-        GameManager.Inst.plCoin -= triangleMoney;
+        GameManager.Inst.coinB -= triangleMoney;
+        GameManager.Inst.coinBText.text = GameManager.Inst.coinB.ToString();
     }
 
     public void Doshirac()
     {
         GameManager.Inst.DoshiAmount += 1;
-        GameManager.Inst.plCoin -= doshraracMoney;
+        GameManager.Inst.coinB -= doshraracMoney;
+        GameManager.Inst.coinBText.text = GameManager.Inst.coinB.ToString();
     }
 
     public void Bread()
     {
         GameManager.Inst.BreadAmount += 1;
-        GameManager.Inst.plCoin -= breadMoney;
+        GameManager.Inst.coinB -= breadMoney;
+        GameManager.Inst.coinBText.text = GameManager.Inst.coinB.ToString();
 
     }
 
     public void Drink()
     {
         GameManager.Inst.DrinkAmount += 1;
-        GameManager.Inst.plCoin -= drinkMoney;
+        GameManager.Inst.coinB -= drinkMoney;
+        GameManager.Inst.coinBText.text = GameManager.Inst.coinB.ToString();
     }
 
 }

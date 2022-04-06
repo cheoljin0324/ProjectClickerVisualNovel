@@ -87,6 +87,10 @@ public class GameManager : MonoSingleton<GameManager>
     public bool isDrink = false;
     public bool isBread = false;
 
+    public long coinB = 0;
+
+    [SerializeField]
+    public Text coinBText;
 
     [SerializeField]
     public int Rps = 0;
@@ -141,6 +145,8 @@ public class GameManager : MonoSingleton<GameManager>
         LoadData();
         ricorderShop.RicorderUiUpdate();
         UpdateText();
+
+        coinBText.text = coinB.ToString();
 
         Debug.Log(loadaudio.volume);
 

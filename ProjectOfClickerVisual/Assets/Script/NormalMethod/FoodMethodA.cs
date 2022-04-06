@@ -30,7 +30,7 @@ public class FoodMethodA : MonoBehaviour
     {
         GameManager.Inst.isRaman = true;
         GameManager.Inst.RamanAmount -= 1;
-        if (GameManager.Inst.RamanAmount <= 0)
+        if (GameManager.Inst.RamanAmount == 0)
         {
             ramanButton.gameObject.SetActive(false);
         }
