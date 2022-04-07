@@ -183,6 +183,10 @@ public class GameManager : MonoSingleton<GameManager>
         PlayerPrefs.SetInt("MicMoney", micMoney);
         PlayerPrefs.SetInt("FlutMoney", flutMoney);
         PlayerPrefs.SetInt("TamBurinMoney", tamMoney);
+        PlayerPrefs.SetString("CoinB", coinB.ToString());
+        PlayerPrefs.SetInt("Raman", RamanAmount);
+        PlayerPrefs.SetInt("Dosh", DoshiAmount);
+        PlayerPrefs.SetInt("Triangle", TriangleAmount);
 
         Debug.Log("ºº¿Ã∫Í");
     }
@@ -190,6 +194,7 @@ public class GameManager : MonoSingleton<GameManager>
     public void LoadData()
     {
         string a;
+        string b;
 
         a = PlayerPrefs.GetString("plCoin",plCoin.ToString());
         plCoin = BigInteger.Parse(a);
@@ -218,6 +223,11 @@ public class GameManager : MonoSingleton<GameManager>
         micMoney = PlayerPrefs.GetInt("MicMoney", micMoney);
         flutMoney = PlayerPrefs.GetInt("FlutMoney", flutMoney);
         tamMoney = PlayerPrefs.GetInt("TamBurinMoney", tamMoney);
+        RamanAmount = PlayerPrefs.GetInt("Raman", RamanAmount);
+        DoshiAmount = PlayerPrefs.GetInt("Dosh", DoshiAmount);
+        TriangleAmount = PlayerPrefs.GetInt("Triangle", TriangleAmount);
+        b = PlayerPrefs.GetString("CoinB", coinB.ToString());
+        coinB = long.Parse(b);
         Debug.Log(pianoSpriteLevel);
 
     }

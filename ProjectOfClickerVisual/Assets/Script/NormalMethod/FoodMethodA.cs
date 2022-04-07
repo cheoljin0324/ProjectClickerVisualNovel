@@ -28,6 +28,7 @@ public class FoodMethodA : MonoBehaviour
 
     public void RamanBurf()
     {
+        GameManager.Inst.SaveData();
         GameManager.Inst.isRaman = true;
         GameManager.Inst.RamanAmount -= 1;
         if (GameManager.Inst.RamanAmount == 0)
@@ -51,6 +52,7 @@ public class FoodMethodA : MonoBehaviour
 
     IEnumerator RamanAni()
     {
+        imPactSprite.sprite = RamanSprite;
         while (true)
         {
             imPactSprite.transform.DOScale(imPactSprite.transform.localScale * 1.2f, 2f);
@@ -70,6 +72,7 @@ public class FoodMethodA : MonoBehaviour
 
     public void TriangleBurf()
     {
+        GameManager.Inst.SaveData();
         GameManager.Inst.TriangleAmount -= 1;
         if (GameManager.Inst.TriangleAmount <= 0)
         {
@@ -81,8 +84,25 @@ public class FoodMethodA : MonoBehaviour
 
     IEnumerator TriangleBurfIn()
     {
+        imPactSprite.gameObject.SetActive(true);
+        imPactSprite.sprite = TriangleSprite;
+        StartCoroutine("TriangleAni");
+
         yield return new WaitForSeconds(30f);
-        RamanStopRamanBurf();
+        StopCoroutine("TriangleAni");
+        TriangleCoroutineStop();
+    }
+
+    IEnumerator TriangleAni()
+    {
+        imPactSprite.sprite = TriangleSprite;
+        while (true)
+        {
+            imPactSprite.transform.DOScale(imPactSprite.transform.localScale * 1.2f, 2f);
+            yield return new WaitForSeconds(1f);
+            imPactSprite.transform.DOScale(imPactSprite.transform.localScale * 0.8f, 2f);
+            yield return new WaitForSeconds(1f);
+        }
     }
 
     public void TriangleCoroutineStop()
@@ -93,6 +113,7 @@ public class FoodMethodA : MonoBehaviour
 
     public void DoshiBurf()
     {
+        GameManager.Inst.SaveData();
         GameManager.Inst.DoshiAmount -= 1;
         if (GameManager.Inst.DoshiAmount <= 0)
         {
@@ -103,11 +124,29 @@ public class FoodMethodA : MonoBehaviour
     }
     IEnumerator DoshBurfIn()
     {
+        imPactSprite.gameObject.SetActive(true);
+        imPactSprite.sprite = DoshSprite;
+        StartCoroutine("DoshAni");
+
         yield return new WaitForSeconds(30f);
-        DoshCoroutineStop();
+        StopCoroutine("DoshAni");
+        TriangleCoroutineStop();
+    }
+
+    IEnumerator DoshAni()
+    {
+        imPactSprite.sprite = DoshSprite;
+        while (true)
+        {
+            imPactSprite.transform.DOScale(imPactSprite.transform.localScale * 1.2f, 2f);
+            yield return new WaitForSeconds(1f);
+            imPactSprite.transform.DOScale(imPactSprite.transform.localScale * 0.8f, 2f);
+            yield return new WaitForSeconds(1f);
+        }
     }
     public void DoshCoroutineStop()
     {
         GameManager.Inst.isDosh = false;
+        imPactSprite.gameObject.SetActive(false);
     }
 }
