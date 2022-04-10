@@ -451,12 +451,22 @@ public class GameManager : MonoSingleton<GameManager>
         mouspos = Input.mousePosition;
         transpos = Camera.main.ScreenToWorldPoint(mouspos);
 
+       
+
         GameObject clickEffect = poolManager.PoolPlayObject(type);
+        GameObject Particleobj = poolManager.PoolPlayObject(ObjectType.effectPart);
+
+        ParticleSystem part = Particleobj.GetComponent<ParticleSystem>();
+
         clickEffect.gameObject.SetActive(true);
+        Particleobj.gameObject.SetActive(true);
+
+        Particleobj.transform.position = new UnityEngine.Vector3(transpos.x, transpos.y, 0);
         clickEffect.transform.position = new UnityEngine.Vector3(transpos.x, transpos.y, 0);
 
 
         StartCoroutine(MeshTextCool(clickEffect, type));
+        StartCoroutine(MeshTextCool(Particleobj, ObjectType.effectPart));
     }
 
     private void UpdateText()

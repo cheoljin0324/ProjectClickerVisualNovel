@@ -6,7 +6,8 @@ using UnityEngine;
 public enum ObjectType
 {
     clickEffect,
-    moneyText
+    moneyText,
+    effectPart
 }
 
 [System.Serializable]
