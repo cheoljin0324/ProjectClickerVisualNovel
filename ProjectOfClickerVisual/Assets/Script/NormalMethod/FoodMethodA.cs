@@ -13,6 +13,9 @@ public class FoodMethodA : MonoBehaviour
     private FoodManager foodManager;
 
     [SerializeField]
+    private GameObject ramanParticle;
+
+    [SerializeField]
     private Sprite RamanSprite;
     [SerializeField]
     private Sprite TriangleSprite;
@@ -31,6 +34,7 @@ public class FoodMethodA : MonoBehaviour
         GameManager.Inst.SaveData();
         GameManager.Inst.isRaman = true;
         GameManager.Inst.RamanAmount -= 1;
+        ramanParticle.gameObject.SetActive(true);
         if (GameManager.Inst.RamanAmount == 0)
         {
             ramanButton.gameObject.SetActive(false);
@@ -46,7 +50,8 @@ public class FoodMethodA : MonoBehaviour
         StartCoroutine("RamanAni");
 
         yield return new WaitForSeconds(30f);
-        StopCoroutine("RamanAni");
+        StopCoroutine("RamanAni"); 
+        ramanParticle.gameObject.SetActive(false);
         RamanStopRamanBurf();
     }
 
