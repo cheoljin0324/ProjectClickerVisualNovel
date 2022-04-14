@@ -9,6 +9,8 @@ public class LoadScreen : MonoBehaviour
     [SerializeField]
     private GameObject mapCanvas;
     [SerializeField]
+    private Button ExitButton;
+    [SerializeField]
     private GameObject mainCanvas;
     [SerializeField]
     private GameObject RicorderShopCanvas;
@@ -39,6 +41,8 @@ public class LoadScreen : MonoBehaviour
     public bool mainScene = true;
     public bool ShopScene = false;
 
+    public bool mainScreen = true;
+
 
     private void Start()
     {
@@ -50,6 +54,7 @@ public class LoadScreen : MonoBehaviour
     public void SetMap()
     {
         mapCanvas.gameObject.SetActive(true);
+        mainScreen = false;
         mainCanvasAni.transform.DOMove(new Vector3(0f, 8.5f, 0), 1f, false);
         Invoke("DestMain", 1f);
 
@@ -58,7 +63,11 @@ public class LoadScreen : MonoBehaviour
 
     private void DestMain()
     {
-        mainCanvas.gameObject.SetActive(false);
+        if(mainScreen == false)
+        {
+            mainCanvas.gameObject.SetActive(false);
+        }
+       
     }
 
 
@@ -144,6 +153,7 @@ public class LoadScreen : MonoBehaviour
     {
         mainCanvas.gameObject.SetActive(true);
         mapCanvas.gameObject.SetActive(false);
+        mainScreen = true;
         mainCanvasAni.transform.position = objectTransform.position;
     }
 
