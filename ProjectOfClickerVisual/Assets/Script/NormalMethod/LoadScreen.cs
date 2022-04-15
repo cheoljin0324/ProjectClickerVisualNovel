@@ -62,7 +62,7 @@ public class LoadScreen : MonoBehaviour
             ItemParticel[i].gameObject.SetActive(false);
         }
         mainScreen = false;
-        mainCanvasAni.transform.DOMove(new Vector3(0f, 12.5f, 0), 1f, false);
+        mainCanvasAni.transform.DOMove(new Vector3(0f, 9.5f, 0), 1f, false);
         Invoke("DestMain", 1f);
 
         audio.volume = GameManager.Inst.beforeAudioVolum;
