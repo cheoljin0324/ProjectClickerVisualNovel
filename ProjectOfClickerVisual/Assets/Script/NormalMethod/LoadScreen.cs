@@ -7,6 +7,9 @@ using DG.Tweening;
 public class LoadScreen : MonoBehaviour
 {
     [SerializeField]
+    private ParticleSystem[] ItemParticel;
+
+    [SerializeField]
     private GameObject mapCanvas;
     [SerializeField]
     private Button ExitButton;
@@ -54,8 +57,12 @@ public class LoadScreen : MonoBehaviour
     public void SetMap()
     {
         mapCanvas.gameObject.SetActive(true);
+        for(int i = 0; i< ItemParticel.Length; i++)
+        {
+            ItemParticel[i].gameObject.SetActive(false);
+        }
         mainScreen = false;
-        mainCanvasAni.transform.DOMove(new Vector3(0f, 8.5f, 0), 1f, false);
+        mainCanvasAni.transform.DOMove(new Vector3(0f, 12.5f, 0), 1f, false);
         Invoke("DestMain", 1f);
 
         audio.volume = GameManager.Inst.beforeAudioVolum;
@@ -153,6 +160,18 @@ public class LoadScreen : MonoBehaviour
     {
         mainCanvas.gameObject.SetActive(true);
         mapCanvas.gameObject.SetActive(false);
+        if (GameManager.Inst.isRaman == true)
+        {
+            ItemParticel[0].gameObject.SetActive(true);
+        }
+        if (GameManager.Inst.isDosh==true)
+        {
+            ItemParticel[1].gameObject.SetActive(true);
+        }
+        if (GameManager.Inst.isTriangle)
+        {
+            ItemParticel[2].gameObject.SetActive(true);
+        }
         mainScreen = true;
         mainCanvasAni.transform.position = objectTransform.position;
     }

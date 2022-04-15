@@ -65,6 +65,7 @@
     <Compile Include="Assets\Script\Manager\HighLowPositionManager.cs" />
     <Compile Include="Assets\Script\Manager\ShopUIManager.cs" />
     <Compile Include="Assets\Script\NormalMethod\FoodMethodA.cs" />
+    <Compile Include="Assets\Script\NormalMethod\ParticleSystem.cs" />
     <Compile Include="Assets\Script\NormalMethod\Click.cs" />
     <Compile Include="Assets\Script\VisualNovel\DialogueData.cs" />
     <Compile Include="Assets\Script\Manager\RicorderUiManager.cs" />
@@ -84,7 +85,7 @@
     <Compile Include="Assets\Script\NormalMethod\TMP.cs" />
     <Compile Include="Assets\Script\TestCode\GenerateObjectTest.cs" />
     <Compile Include="Assets\Script\Manager\CreateQuest.cs" />
-    <Compile Include="Assets\Script\NormalMethod\ParticleSystem.cs" />
+    <Compile Include="Assets\Script\NormalMethod\CameraResolution.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
