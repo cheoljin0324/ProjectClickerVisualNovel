@@ -73,6 +73,7 @@ public class LoadScreen : MonoBehaviour
         if(mainScreen == false)
         {
             mainCanvas.gameObject.SetActive(false);
+            GameManager.Inst.isMain = false;
         }
        
     }
@@ -173,6 +174,7 @@ public class LoadScreen : MonoBehaviour
             ItemParticel[2].gameObject.SetActive(true);
         }
         mainScreen = true;
+        GameManager.Inst.isMain = true;
         mainCanvasAni.transform.position = objectTransform.position;
     }
 

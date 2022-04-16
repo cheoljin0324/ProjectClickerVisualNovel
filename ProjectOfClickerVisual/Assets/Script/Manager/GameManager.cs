@@ -38,6 +38,8 @@ public class GameManager : MonoSingleton<GameManager>
 
 
     public bool isTuto = false;
+
+    public bool isMain = true;
     
     public int RpcLevel1 = 1;
     public int RpcLevel2 = 0;
@@ -243,9 +245,13 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (audioS == 0)
         {
-            beforeAudioVolum = loadaudio.volume;
-            loadaudio.volume = loadaudio.volume / 10;
-            
+            if(isMain == true)
+            {
+                beforeAudioVolum = loadaudio.volume;
+                loadaudio.volume = loadaudio.volume / 10;
+
+            }
+
             Debug.Log(beforeAudioVolum);
             audioS++;
         }
@@ -270,10 +276,39 @@ public class GameManager : MonoSingleton<GameManager>
          
         
         audioSource.clip = audioRecorder[recorderStack];
-        audioSource.Play();
-        ClickAnimation();
-        ClickTextPrint(Rpc,ObjectType.moneyText);
-        ClickPrint(ObjectType.clickEffect);
+
+        if(isMain == true)
+        {
+            audioSource.Play();
+        }
+        
+        if(isMain == true)
+        {
+            if(isMain == false)
+            {
+                return;
+            }
+            ClickAnimation();
+        }
+
+        if(isMain == true)
+        {
+            if (isMain == false)
+            {
+                return;
+            }
+            ClickTextPrint(Rpc, ObjectType.moneyText);
+        }
+
+        if(isMain == true)
+        {
+            if (isMain == false)
+            {
+                return;
+            }
+            ClickPrint(ObjectType.clickEffect);
+        }
+
         UpdateText();
 
 
@@ -447,6 +482,10 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void ClickPrint(ObjectType type)
     {
+        if(isMain == false)
+        {
+            return;
+        }
         UnityEngine.Vector3 mouspos;
         mouspos = Input.mousePosition;
         transpos = Camera.main.ScreenToWorldPoint(mouspos);
