@@ -645,7 +645,7 @@ ScriptsOnlyBuild:
     className: FoodManager
   - hash:
       serializedVersion: 2
-      Hash: 1c796e708dec46729e6c168371a17cb6
+      Hash: 0cb17f8d90b02eec44376d0f7090d9bc
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: GameManager
@@ -910,4 +910,4 @@ ScriptsOnlyBuild:
   platform: 13
   scenePathNames:
   - Assets/Scenes/Main.unity
-  playerPath: D:/Build/DessertFox_GogleClicker(BuildTest 1.0.8).apk
+  playerPath: D:/Build/DessertFox_GogleClicker(BuildTest 1.0.9).apk

@@ -28,8 +28,7 @@ public class UiManager : MonoBehaviour
     [SerializeField]
     private Transform[] buttonTransform;
 
-    [SerializeField]
-    private Text textFull;
+  
 
 
 
@@ -45,12 +44,7 @@ public class UiManager : MonoBehaviour
     private bool isOnButton = false;
 
 
-    private void Update()
-    {
-        textFull.text = GameManager.Inst.plCoin.ToString();
-
-        
-    }
+   
 
     public void SetButton()
     {
@@ -72,15 +66,15 @@ public class UiManager : MonoBehaviour
 
         recorderButton.gameObject.SetActive(true);
         recorderButton.image.DOFade(1f, 0.5f);
-        recorderButton.transform.DOMove(new Vector3(setbutton.transform.position.x, buttonTransform[2].position.y, 0), 0.5f, false);
+        recorderButton.transform.DOMove(new Vector3(buttonTransform[2].position.x, buttonTransform[2].position.y, 0), 0.5f, false);
 
         clothsButton.gameObject.SetActive(true);
         clothsButton.image.DOFade(1, 0.5f);
-        clothsButton.transform.DOMove(new Vector3(setbutton.transform.position.x, buttonTransform[1].position.y, 0), 0.5f, false);
+        clothsButton.transform.DOMove(new Vector3(buttonTransform[1].position.x, buttonTransform[1].position.y, 0), 0.5f, false);
 
         revolButton.gameObject.SetActive(true);
         revolButton.image.DOFade(1, 0.5f);
-        revolButton.transform.DOMove(new Vector3(setbutton.transform.position.x, buttonTransform[0].position.y, 0), 0.5f, false);
+        revolButton.transform.DOMove(new Vector3(buttonTransform[0].position.x, buttonTransform[0].position.y, 0), 0.5f, false);
 
         
 
