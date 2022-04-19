@@ -24,6 +24,76 @@ public class FoodMethodA : MonoBehaviour
     [SerializeField]
     private Button DoshiracButton;
 
+    [SerializeField]
+    private Image ramanImage;
+    [SerializeField]
+    private Image triangleImage;
+    [SerializeField]
+    private Image DoshiracImage;
+
+    bool imageTrue = false;
+    private Image befroeImage = null;
+    bool FirstScroll = false;
+
+
+    public void onRamanComp()
+    {
+        if (imageTrue == true)
+        {
+            befroeImage.gameObject.SetActive(false);
+        }
+        imageTrue = true;
+        ramanImage.gameObject.SetActive(true);
+        befroeImage = ramanImage;
+        befroeImage.gameObject.SetActive(true);
+        
+
+    }
+
+    public void OnTriangleImage()
+    {
+        if (imageTrue == true)
+        {
+            befroeImage.gameObject.SetActive(false);
+        }
+        imageTrue = true;
+        triangleImage.gameObject.SetActive(true);
+        befroeImage = triangleImage;
+        befroeImage.gameObject.SetActive(true);
+
+    }
+
+    public void OnDoshiImage()
+    {
+        if (imageTrue == true)
+        {
+            befroeImage.gameObject.SetActive(false);
+        }
+        imageTrue = true;
+        DoshiracImage.gameObject.SetActive(true);
+        befroeImage = DoshiracImage;
+        befroeImage.gameObject.SetActive(true);
+
+    }
+
+    public void falseButton()
+    {
+        if (FirstScroll == true)
+        {
+            imageTrue = false;
+            if (befroeImage != null)
+            {
+                befroeImage.gameObject.SetActive(false);
+                befroeImage = null;
+            }
+
+        }
+        if (FirstScroll == false)
+        {
+            FirstScroll = true;
+        }
+    }
+
     public void RamanBurf()
     {
         if (GameManager.Inst.isRaman == false)
