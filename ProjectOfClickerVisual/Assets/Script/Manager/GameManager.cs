@@ -18,16 +18,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private Text coinTxt;
 
-    [SerializeField]
-    private GameObject Raman;
-    [SerializeField]
-    private GameObject Triangle;
-    [SerializeField]
-    private GameObject Doshirac;
-    [SerializeField]
-    private GameObject Bread;
-    [SerializeField]
-    private GameObject Drink;
+
 
     [SerializeField]
     private GameObject TestError;
@@ -329,27 +320,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Update()
     {
-
-        if (RamanAmount != 0)
-        {
-            Raman.SetActive(true);
-        }
-        if (TriangleAmount != 0)
-        {
-            Triangle.SetActive(true);
-        }
-        if (DoshiAmount != 0)
-        {
-            Doshirac.SetActive(true);
-        }
-        if (BreadAmount != 0)
-        {
-            Bread.SetActive(true);
-        }
-        if (DrinkAmount != 0)
-        {
-            Drink.SetActive(true);
-        }
 
         if (Input.GetMouseButtonUp(0))
         {

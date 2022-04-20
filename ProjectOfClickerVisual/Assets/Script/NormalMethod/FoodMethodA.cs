@@ -47,7 +47,13 @@ public class FoodMethodA : MonoBehaviour
         befroeImage = ramanImage;
         befroeImage.gameObject.SetActive(true);
         
+    }
 
+    public void OffImage()
+    {
+        imageTrue = false;
+        befroeImage.gameObject.SetActive(false);
+        befroeImage = null;
     }
 
     public void OnTriangleImage()
