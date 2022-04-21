@@ -18,6 +18,9 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private Text coinTxt;
 
+    public bool useRaman = false;
+    public bool useTriangle = false;
+    public bool useDoshi = false;
 
 
     [SerializeField]

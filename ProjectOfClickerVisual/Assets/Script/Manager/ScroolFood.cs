@@ -9,6 +9,8 @@ public class ScroolFood : MonoBehaviour
     private Transform foodScroolingPosition;
     [SerializeField]
     private Transform beforeFoodTransform;
+    [SerializeField]
+    private FoodMethodA foodMethodA;
 
     private long ramanCharMoney = 1;
     private long triangleMoney = 1;
@@ -40,6 +42,12 @@ public class ScroolFood : MonoBehaviour
         GameManager.Inst.coinB -= ramanCharMoney;
         GameManager.Inst.coinBText.text = GameManager.Inst.coinB.ToString();
         GameManager.Inst.SaveData();
+        GameManager.Inst.useRaman = true;
+        if (GameManager.Inst.RamanAmount == 1)
+        {
+            foodMethodA.ramanButton.image.color = new Color(foodMethodA.ramanButton.image.color.r, foodMethodA.ramanButton.image.color.g, foodMethodA.ramanButton.image.color.b, foodMethodA.ramanButton.image.color.a * 2);
+        }
+       
     }
 
     public void Triangle()
@@ -48,6 +56,11 @@ public class ScroolFood : MonoBehaviour
         GameManager.Inst.coinB -= triangleMoney;
         GameManager.Inst.coinBText.text = GameManager.Inst.coinB.ToString();
         GameManager.Inst.SaveData();
+        GameManager.Inst.useTriangle = true;
+        if (GameManager.Inst.TriangleAmount == 1)
+        {
+            foodMethodA.triangleButton.image.color = new Color(foodMethodA.triangleButton.image.color.r, foodMethodA.triangleButton.image.color.g, foodMethodA.triangleButton.image.color.b, foodMethodA.triangleButton.image.color.a * 2);
+        }
     }
 
     public void Doshirac()
@@ -56,6 +69,11 @@ public class ScroolFood : MonoBehaviour
         GameManager.Inst.coinB -= doshraracMoney;
         GameManager.Inst.coinBText.text = GameManager.Inst.coinB.ToString();
         GameManager.Inst.SaveData();
+        GameManager.Inst.useDoshi = true;
+        if (GameManager.Inst.DoshiAmount == 1)
+        {
+            foodMethodA.DoshiracButton.image.color = new Color(foodMethodA.DoshiracButton.image.color.r, foodMethodA.DoshiracButton.image.color.g, foodMethodA.DoshiracButton.image.color.b, foodMethodA.DoshiracButton.image.color.a * 2);
+        }
     }
 
     public void Bread()
