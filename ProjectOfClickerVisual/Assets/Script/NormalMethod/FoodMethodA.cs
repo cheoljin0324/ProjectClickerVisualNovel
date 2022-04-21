@@ -125,15 +125,18 @@ public class FoodMethodA : MonoBehaviour
     {
         if (GameManager.Inst.isRaman == false)
         {
-            GameManager.Inst.SaveData();
-            GameManager.Inst.isRaman = true;
-            GameManager.Inst.RamanAmount -= 1;
-            ramanParticle.gameObject.SetActive(true);
-            if (GameManager.Inst.RamanAmount <= 0)
+            if (GameManager.Inst.RamanAmount > 0)
             {
-                ramanButton.image.color = new Color(ramanButton.image.color.r, ramanButton.image.color.g, ramanButton.image.color.b, ramanButton.image.color.a / 2);
+                GameManager.Inst.SaveData();
+                GameManager.Inst.isRaman = true;
+                GameManager.Inst.RamanAmount -= 1;
+                ramanParticle.gameObject.SetActive(true);
+                if (GameManager.Inst.RamanAmount <= 0)
+                {
+                    ramanButton.image.color = new Color(ramanButton.image.color.r, ramanButton.image.color.g, ramanButton.image.color.b, ramanButton.image.color.a / 2);
+                }
+                StartCoroutine("RamanBurfIn");
             }
-            StartCoroutine("RamanBurfIn");
         }
        
     }
@@ -155,15 +158,19 @@ public class FoodMethodA : MonoBehaviour
     {
         if(GameManager.Inst.isTriangle == false)
         {
-            GameManager.Inst.SaveData();
-            GameManager.Inst.TriangleAmount -= 1;
-            TriangleParticle.SetActive(true);
-            if (GameManager.Inst.TriangleAmount <= 0)
+            if (GameManager.Inst.TriangleAmount > 0)
             {
-                triangleButton.image.color = new Color(triangleButton.image.color.r, triangleButton.image.color.g, triangleButton.image.color.b, triangleButton.image.color.a / 2);
+                GameManager.Inst.SaveData();
+                GameManager.Inst.TriangleAmount -= 1;
+                TriangleParticle.SetActive(true);
+                if (GameManager.Inst.TriangleAmount <= 0)
+                {
+                    triangleButton.image.color = new Color(triangleButton.image.color.r, triangleButton.image.color.g, triangleButton.image.color.b, triangleButton.image.color.a / 2);
+                }
+                GameManager.Inst.isTriangle = true;
+                StartCoroutine(TriangleBurfIn());
             }
-            GameManager.Inst.isTriangle = true;
-            StartCoroutine(TriangleBurfIn());
+  
         }
     }
 
@@ -185,15 +192,18 @@ public class FoodMethodA : MonoBehaviour
     {
         if(GameManager.Inst.isDosh == false)
         {
-            GameManager.Inst.SaveData();
-            GameManager.Inst.DoshiAmount -= 1;
-            DoshParticle.SetActive(true);
-            if (GameManager.Inst.DoshiAmount <= 0)
+            if (GameManager.Inst.DoshiAmount > 0)
             {
-                DoshiracButton.image.color = new Color(DoshiracButton.image.color.r, DoshiracButton.image.color.g, DoshiracButton.image.color.b, DoshiracButton.image.color.a / 2);
+                GameManager.Inst.SaveData();
+                GameManager.Inst.DoshiAmount -= 1;
+                DoshParticle.SetActive(true);
+                if (GameManager.Inst.DoshiAmount <= 0)
+                {
+                    DoshiracButton.image.color = new Color(DoshiracButton.image.color.r, DoshiracButton.image.color.g, DoshiracButton.image.color.b, DoshiracButton.image.color.a / 2);
+                }
+                GameManager.Inst.isDosh = true;
+                StartCoroutine("DoshBurfIn");
             }
-            GameManager.Inst.isDosh = true;
-            StartCoroutine("DoshBurfIn");
         }
     }
     IEnumerator DoshBurfIn()
