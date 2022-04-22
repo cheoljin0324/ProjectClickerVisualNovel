@@ -25,6 +25,13 @@ public class FoodMethodA : MonoBehaviour
     public Button DoshiracButton;
 
     [SerializeField]
+    private Image ramanCoolImage;
+    [SerializeField]
+    private Image triangleCoolImage;
+    [SerializeField]
+    private Image DoshiracCoolImage;
+
+    [SerializeField]
     private Image ramanImage;
     [SerializeField]
     private Image triangleImage;
@@ -34,6 +41,8 @@ public class FoodMethodA : MonoBehaviour
     bool imageTrue = false;
     private Image befroeImage = null;
     bool FirstScroll = false;
+
+    private float cool = 35f;
 
 
     private void Start()
@@ -135,7 +144,9 @@ public class FoodMethodA : MonoBehaviour
                 {
                     ramanButton.image.color = new Color(ramanButton.image.color.r, ramanButton.image.color.g, ramanButton.image.color.b, ramanButton.image.color.a / 2);
                 }
+                ramanCoolImage.fillAmount = 1;
                 StartCoroutine("RamanBurfIn");
+                StartCoroutine("RamanCoolAnim");
             }
         }
        
@@ -146,6 +157,16 @@ public class FoodMethodA : MonoBehaviour
         yield return new WaitForSeconds(30f);
         ramanParticle.gameObject.SetActive(false);
         RamanStopRamanBurf();
+    }
+
+    IEnumerator RamanCoolAnim()
+    {
+        while (cool > 1.0f)
+        {
+            cool -= Time.deltaTime;
+            ramanCoolImage.fillAmount = (1.0f / cool);
+            yield return new WaitForFixedUpdate();
+        }
     }
 
 
@@ -167,6 +188,7 @@ public class FoodMethodA : MonoBehaviour
                 {
                     triangleButton.image.color = new Color(triangleButton.image.color.r, triangleButton.image.color.g, triangleButton.image.color.b, triangleButton.image.color.a / 2);
                 }
+                triangleCoolImage.fillAmount = 1;
                 GameManager.Inst.isTriangle = true;
                 StartCoroutine(TriangleBurfIn());
             }
@@ -201,6 +223,7 @@ public class FoodMethodA : MonoBehaviour
                 {
                     DoshiracButton.image.color = new Color(DoshiracButton.image.color.r, DoshiracButton.image.color.g, DoshiracButton.image.color.b, DoshiracButton.image.color.a / 2);
                 }
+                DoshiracCoolImage.fillAmount = 1;
                 GameManager.Inst.isDosh = true;
                 StartCoroutine("DoshBurfIn");
             }

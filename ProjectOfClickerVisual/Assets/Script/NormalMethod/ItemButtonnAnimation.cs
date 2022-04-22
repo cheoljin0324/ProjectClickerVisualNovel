@@ -14,10 +14,21 @@ public class ItemButtonnAnimation : MonoBehaviour
     private Button[] itemButton;
 
     public bool isIn = false;
+    public bool isOnButton = false;
 
     public void ItemIn()
     {
-        itemInButton.image.DOFade(0.5f, 1f);
+        if (isOnButton == false)
+        {
+            itemInButton.image.DOFade(0.5f, 1f);
+            isOnButton = true;
+        }
+        else if(isOnButton == true)
+        {
+            itemInButton.image.DOFade(1f, 1f);
+            isOnButton = false;
+        }
+
         AnimItemButton();
     }
 

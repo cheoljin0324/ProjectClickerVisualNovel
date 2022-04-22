@@ -7,7 +7,8 @@ public enum ObjectType
 {
     clickEffect,
     moneyText,
-    effectPart
+    effectPart,
+    clickIcon
 }
 
 [System.Serializable]

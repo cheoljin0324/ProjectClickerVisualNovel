@@ -18,6 +18,8 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField]
     private Text coinTxt;
 
+    public GameObject clickIconOb;
+
     public bool useRaman = false;
     public bool useTriangle = false;
     public bool useDoshi = false;
@@ -96,6 +98,11 @@ public class GameManager : MonoSingleton<GameManager>
 
     [SerializeField]
     private PoolManager poolManager;
+
+    [SerializeField]
+    private Text RpcText;
+    [SerializeField]
+    private Text RpsText;
 
     [SerializeField]
     public GameObject effectTextMesh;
@@ -323,6 +330,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Update()
     {
+        RpcTextUpdate();
+        RpsText.text = Rps.ToString();
 
         if (Input.GetMouseButtonUp(0))
         {
@@ -396,9 +405,118 @@ public class GameManager : MonoSingleton<GameManager>
 
     }
 
+    private void RpcTextUpdate()
+    {
+        BigInteger renderNum = Rpc;
+        BigInteger defalt = 0;
+
+        int stack = 0;
+
+        if (renderNum < 1000)
+        {
+            coinTxt.text = renderNum.ToString();
+            return;
+        }
+
+        for (int i = 0; i < unit.Length; ++i)
+        {
+            if (renderNum >= 1000)
+            {
+                defalt = renderNum % 1000;
+                renderNum /= 1000;
+                ++stack;
+            }
+            else
+            {
+                if (defalt > 100)
+                {
+                    RpcText.text = renderNum.ToString() + "." + defalt + unit[stack];
+                    break;
+                }
+                else if (defalt > 10)
+                {
+                    RpcText.text = renderNum.ToString() + "." + "0" + defalt + unit[stack];
+                    break;
+                }
+                else if (defalt < 10)
+                {
+                    RpcText.text = renderNum.ToString() + "." + "00" + defalt + unit[stack];
+                    break;
+                }
+                else if (defalt == 100)
+                {
+                    RpcText.text = renderNum.ToString() + "." + "1" + unit[stack];
+                    break;
+                }
+                else if (defalt == 10)
+                {
+                    RpcText.text = renderNum.ToString() + "." + "01" + unit[stack];
+                    break;
+                }
+            }
+        }
+    }
+
+    private void RpsTextUpdate()
+    {
+        BigInteger renderNum = Rps;
+        BigInteger defalt = 0;
+
+        int stack = 0;
+
+        if (renderNum < 1000)
+        {
+            RpsText.text = renderNum.ToString();
+            return;
+        }
+
+        for (int i = 0; i < unit.Length; ++i)
+        {
+            if (renderNum >= 1000)
+            {
+                defalt = renderNum % 1000;
+                renderNum /= 1000;
+                ++stack;
+            }
+            else
+            {
+                if (defalt > 100)
+                {
+                    RpsText.text = renderNum.ToString() + "." + defalt + unit[stack];
+                    break;
+                }
+                else if (defalt > 10)
+                {
+                    RpsText.text = renderNum.ToString() + "." + "0" + defalt + unit[stack];
+                    break;
+                }
+                else if (defalt < 10)
+                {
+                    RpsText.text = renderNum.ToString() + "." + "00" + defalt + unit[stack];
+                    break;
+                }
+                else if (defalt == 100)
+                {
+                    RpsText.text = renderNum.ToString() + "." + "1" + unit[stack];
+                    break;
+                }
+                else if (defalt == 10)
+                {
+                    RpsText.text = renderNum.ToString() + "." + "01" + unit[stack];
+                    break;
+                }
+            }
+        }
+    }
+
     private void ClickTextPrint(long coin,ObjectType type)
     {
-       
+
+        GameObject clickIconinstance = poolManager.PoolPlayObject(ObjectType.clickIcon);
+        clickIconinstance.gameObject.SetActive(true);
+        clickIconinstance.transform.position = new UnityEngine.Vector3(playerImage.transform.position.x, playerImage.transform.position.y, playerImage.transform.position.z);
+        StartCoroutine(MeshTextCool(clickIconinstance, ObjectType.clickIcon));
+
         GameObject MeshText = poolManager.PoolPlayObject(type);
         Transform txtTransform = MeshText.transform;
         MeshText.gameObject.SetActive(true);
@@ -414,7 +532,6 @@ public class GameManager : MonoSingleton<GameManager>
         {
             MeshText.transform.localScale = new UnityEngine.Vector3(1.5f, 1.5f, 0);
         }
-
         StartCoroutine(MeshTextCool(MeshText,type));
      
     }
@@ -463,7 +580,6 @@ public class GameManager : MonoSingleton<GameManager>
         mouspos = Input.mousePosition;
         transpos = Camera.main.ScreenToWorldPoint(mouspos);
 
-       
 
         GameObject clickEffect = poolManager.PoolPlayObject(type);
         GameObject Particleobj = poolManager.PoolPlayObject(ObjectType.effectPart);
@@ -473,16 +589,22 @@ public class GameManager : MonoSingleton<GameManager>
         clickEffect.gameObject.SetActive(true);
         Particleobj.gameObject.SetActive(true);
 
+
         Particleobj.transform.position = new UnityEngine.Vector3(transpos.x, transpos.y, 0);
         clickEffect.transform.position = new UnityEngine.Vector3(transpos.x, transpos.y, 0);
+       
 
 
+       
         StartCoroutine(MeshTextCool(clickEffect, type));
         StartCoroutine(MeshTextCool(Particleobj, ObjectType.effectPart));
+
     }
 
     private void UpdateText()
     {
+
+
         BigInteger renderNum = plCoin;
         BigInteger defalt = 0;
 
