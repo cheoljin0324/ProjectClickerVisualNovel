@@ -50,19 +50,19 @@ public class FoodMethodA : MonoBehaviour
         if (GameManager.Inst.RamanAmount <= 0)
         {
             GameManager.Inst.useRaman = false;
-            ramanButton.image.color = new Color(ramanButton.image.color.r, ramanButton.image.color.g, ramanButton.image.color.b, ramanButton.image.color.a / 2);
+            ramanButton.image.color = new Color(ramanButton.image.color.r, ramanButton.image.color.g, ramanButton.image.color.b, ramanButton.image.color.a);
         }
 
         if (GameManager.Inst.TriangleAmount <= 0)
         {
             GameManager.Inst.useTriangle = false;
-            triangleButton.image.color = new Color(triangleButton.image.color.r, triangleButton.image.color.g, triangleButton.image.color.b, triangleButton.image.color.a / 2);
+            triangleButton.image.color = new Color(triangleButton.image.color.r, triangleButton.image.color.g, triangleButton.image.color.b, triangleButton.image.color.a);
         }
 
         if (GameManager.Inst.DoshiAmount <= 0)
         {
             GameManager.Inst.useDoshi = false;
-            DoshiracButton.image.color = new Color(DoshiracButton.image.color.r, DoshiracButton.image.color.g, DoshiracButton.image.color.b, DoshiracButton.image.color.a / 2);
+            DoshiracButton.image.color = new Color(DoshiracButton.image.color.r, DoshiracButton.image.color.g, DoshiracButton.image.color.b, DoshiracButton.image.color.a);
         }
     }
 
@@ -142,9 +142,9 @@ public class FoodMethodA : MonoBehaviour
                 ramanParticle.gameObject.SetActive(true);
                 if (GameManager.Inst.RamanAmount <= 0)
                 {
-                    ramanButton.image.color = new Color(ramanButton.image.color.r, ramanButton.image.color.g, ramanButton.image.color.b, ramanButton.image.color.a / 2);
+                    ramanButton.image.color = new Color(ramanButton.image.color.r, ramanButton.image.color.g, ramanButton.image.color.b, ramanButton.image.color.a / 5);
                 }
-                ramanCoolImage.fillAmount = 1;
+                ramanCoolImage.fillAmount = 0;
                 StartCoroutine("RamanBurfIn");
                 StartCoroutine("RamanCoolAnim");
             }
@@ -186,9 +186,9 @@ public class FoodMethodA : MonoBehaviour
                 TriangleParticle.SetActive(true);
                 if (GameManager.Inst.TriangleAmount <= 0)
                 {
-                    triangleButton.image.color = new Color(triangleButton.image.color.r, triangleButton.image.color.g, triangleButton.image.color.b, triangleButton.image.color.a / 2);
+                    triangleButton.image.color = new Color(triangleButton.image.color.r, triangleButton.image.color.g, triangleButton.image.color.b, triangleButton.image.color.a / 5);
                 }
-                triangleCoolImage.fillAmount = 1;
+                triangleCoolImage.fillAmount = 0;
                 GameManager.Inst.isTriangle = true;
                 StartCoroutine(TriangleBurfIn());
             }

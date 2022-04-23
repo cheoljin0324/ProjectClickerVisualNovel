@@ -398,8 +398,11 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (clickAct == true)
         {
-            playerImage.transform.DOScale(new UnityEngine.Vector2(-1, -1), 0.5f);
-            playerImage.transform.DOScale(new UnityEngine.Vector2(1, 1), 0.5f);
+            float scalex = playerImage.transform.localScale.x;
+            float scaley = playerImage.transform.localScale.y;
+
+            playerImage.transform.DOScale(new UnityEngine.Vector2(playerImage.transform.localScale.x/200f, playerImage.transform.localScale.y/200f), 0.5f);
+            playerImage.transform.DOScale(new UnityEngine.Vector2(scalex, scaley), 0.5f);
 
         }
 
@@ -512,10 +515,10 @@ public class GameManager : MonoSingleton<GameManager>
     private void ClickTextPrint(long coin,ObjectType type)
     {
 
-        GameObject clickIconinstance = poolManager.PoolPlayObject(ObjectType.clickIcon);
-        clickIconinstance.gameObject.SetActive(true);
-        clickIconinstance.transform.position = new UnityEngine.Vector3(playerImage.transform.position.x, playerImage.transform.position.y, playerImage.transform.position.z);
-        StartCoroutine(MeshTextCool(clickIconinstance, ObjectType.clickIcon));
+        //GameObject clickIconinstance = poolManager.PoolPlayObject(ObjectType.clickIcon);
+        //clickIconinstance.gameObject.SetActive(true);
+        //clickIconinstance.transform.position = new UnityEngine.Vector3(playerImage.transform.position.x, playerImage.transform.position.y, playerImage.transform.position.z);
+        //StartCoroutine(MeshTextCool(clickIconinstance, ObjectType.clickIcon));
 
         GameObject MeshText = poolManager.PoolPlayObject(type);
         Transform txtTransform = MeshText.transform;
@@ -549,7 +552,15 @@ public class GameManager : MonoSingleton<GameManager>
 
     private IEnumerator MeshTextCool(GameObject MeshText,ObjectType type)
     {
-        yield return new WaitForSeconds(1f);
+        if (type == ObjectType.clickIcon)
+        {
+            yield return new WaitForSeconds(4f);
+        }
+        else
+        {
+            yield return new WaitForSeconds(1f);
+        }
+
         poolManager.CoolObject(MeshText, type);
     }
 

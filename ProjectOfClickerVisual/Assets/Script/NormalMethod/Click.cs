@@ -5,6 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 public class Click : MonoBehaviour
 {
+
     public float destroyTime = 1f;
     SpriteRenderer sprite;
     private bool isfirst = false;
