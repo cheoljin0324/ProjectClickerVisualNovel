@@ -92,15 +92,15 @@ public class RiCorderShopManager : MonoBehaviour
 
     public void RicorderUiUpdate()
     {
-        if (GameManager.Inst.RpcLevel1 > 50) RicorderGuard[0].gameObject.SetActive(false);
-        if (GameManager.Inst.RpcLevel2 > 50) RicorderGuard[1].gameObject.SetActive(false);
-        if (GameManager.Inst.RpcLevel3 > 50) RicorderGuard[2].gameObject.SetActive(false);
-        if (GameManager.Inst.RpcLevel4 > 50) RicorderGuard[3].gameObject.SetActive(false);
-        if (GameManager.Inst.RpcLevel5 > 50) RicorderGuard[4].gameObject.SetActive(false);
-        if (GameManager.Inst.RpcLevel6 > 50) RicorderGuard[5].gameObject.SetActive(false);
-        if (GameManager.Inst.RpcLevel7 > 50) RicorderGuard[6].gameObject.SetActive(false);
-        if (GameManager.Inst.RpcLevel8 > 50) RicorderGuard[7].gameObject.SetActive(false);
-        if (GameManager.Inst.RpcLevel9 > 50) RicorderGuard[8].gameObject.SetActive(false);
+        if (GameManager.Inst.RpcLevel1 > 20) RicorderGuard[0].gameObject.SetActive(false);
+        if (GameManager.Inst.RpcLevel2 > 20) RicorderGuard[1].gameObject.SetActive(false);
+        if (GameManager.Inst.RpcLevel3 > 20) RicorderGuard[2].gameObject.SetActive(false);
+        if (GameManager.Inst.RpcLevel4 > 20) RicorderGuard[3].gameObject.SetActive(false);
+        if (GameManager.Inst.RpcLevel5 > 20) RicorderGuard[4].gameObject.SetActive(false);
+        if (GameManager.Inst.RpcLevel6 > 20) RicorderGuard[5].gameObject.SetActive(false);
+        if (GameManager.Inst.RpcLevel7 > 20) RicorderGuard[6].gameObject.SetActive(false);
+        if (GameManager.Inst.RpcLevel8 > 20) RicorderGuard[7].gameObject.SetActive(false);
+        if (GameManager.Inst.RpcLevel9 > 20) RicorderGuard[8].gameObject.SetActive(false);
     }
 
     public void BuyRicorder1Level()

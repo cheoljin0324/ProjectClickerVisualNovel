@@ -137,6 +137,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     private string[] unit = { " ","A", "B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","W","X","Y","Z","AA","AB","AC","AD","AE","AF","AG","AH","AI","AJ","AK","AL","AM","AN","AO","AP","AQ","AR","AS","AT","AU","AW","AX","AY","AZ" };
 
+    public int RevolutionNum = 0;
+
     public void ExitGame()
     {
         Application.Quit();
@@ -361,11 +363,11 @@ public class GameManager : MonoSingleton<GameManager>
         }
         if (recorderStack != 15)
         {
-            Rpc = ((RpcLevel1*100)+(RpcLevel2*2000)+(RpcLevel3*3000)+(RpcLevel4*4000)+(RpcLevel5*5000)+(RpcLevel6*6000)+(RpcLevel7*7000)+(RpcLevel8*8000)+(RpcLevel9*9000)+(RpcLevel10*10000) + 10)*3;
+            Rpc = ((RpcLevel1*100)+(RpcLevel2*2000)+(RpcLevel3*3000)+(RpcLevel4*4000)+(RpcLevel5*5000)+(RpcLevel6*6000)+(RpcLevel7*7000)+(RpcLevel8*8000)+(RpcLevel9*9000)+(RpcLevel10*10000) + 10)*3+(1000* RevolutionNum);
         }
         else if(recorderStack == 15)
         {
-            Rpc = ((RpcLevel1*100 + (RpcLevel2 * 2000) + (RpcLevel3 * 3000) + (RpcLevel4 * 4000) + (RpcLevel5 * 5000) + (RpcLevel6 * 6000) + (RpcLevel7 * 7000) + (RpcLevel8 * 8000) + (RpcLevel9 * 9000) + (RpcLevel10 * 10000) + 10) * 6 + micLevel*1000 * micLevel)*2 ;
+            Rpc = ((RpcLevel1 * 100 + (RpcLevel2 * 2000) + (RpcLevel3 * 3000) + (RpcLevel4 * 4000) + (RpcLevel5 * 5000) + (RpcLevel6 * 6000) + (RpcLevel7 * 7000) + (RpcLevel8 * 8000) + (RpcLevel9 * 9000) + (RpcLevel10 * 10000) + 10) * 6 + micLevel * 1000 * micLevel) * 2 * +(1000 * RevolutionNum);
         }
         
 

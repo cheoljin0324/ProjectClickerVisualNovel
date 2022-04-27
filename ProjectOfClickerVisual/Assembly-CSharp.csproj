@@ -79,6 +79,7 @@
     <Compile Include="Assets\Script\VisualNovel\VisualNovel.cs" />
     <Compile Include="Assets\Script\NormalMethod\AudioManager.cs" />
     <Compile Include="Assets\Script\TestCode\TestSound.cs" />
+    <Compile Include="Assets\Script\NormalMethod\AudioLong.cs" />
     <Compile Include="Assets\Script\NormalMethod\IconAnimClick.cs" />
     <Compile Include="Assets\Script\Manager\AudioAdjus.cs" />
     <Compile Include="Assets\Script\NormalMethod\MoneyErrorMessae.cs" />
@@ -88,7 +89,7 @@
     <Compile Include="Assets\Script\NormalMethod\TMP.cs" />
     <Compile Include="Assets\Script\TestCode\GenerateObjectTest.cs" />
     <Compile Include="Assets\Script\Manager\CreateQuest.cs" />
-    <Compile Include="Assets\Script\NormalMethod\AudioLong.cs" />
+    <Compile Include="Assets\Script\NormalMethod\Revolution.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
