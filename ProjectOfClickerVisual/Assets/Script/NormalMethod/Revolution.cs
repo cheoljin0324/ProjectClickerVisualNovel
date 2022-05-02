@@ -1,9 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Revolution : MonoBehaviour
 {
+
+    [SerializeField]
+    private Button revolButton;
+
+    public void RevolSet()
+    {
+        if (GameManager.Inst.Rpc > 100000)
+        {
+            revolButton.image.color = new Color(1, 1, 1, 0.5f);
+            SetData();
+        }
+
+    }
     
     public void SetData()
     {
