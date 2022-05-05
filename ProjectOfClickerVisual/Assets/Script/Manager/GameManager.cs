@@ -85,6 +85,8 @@ public class GameManager : MonoSingleton<GameManager>
     public bool isDrink = false;
     public bool isBread = false;
 
+
+
     public long coinB = 0;
 
     [SerializeField]
@@ -139,6 +141,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     public int RevolutionNum = 0;
 
+    public int levolutionStack = 0;
+
     public void ExitGame()
     {
         Application.Quit();
@@ -192,6 +196,7 @@ public class GameManager : MonoSingleton<GameManager>
         PlayerPrefs.SetInt("Raman", RamanAmount);
         PlayerPrefs.SetInt("Dosh", DoshiAmount);
         PlayerPrefs.SetInt("Triangle", TriangleAmount);
+        PlayerPrefs.SetInt("LevolutionStack", levolutionStack);
 
         Debug.Log("ºº¿Ã∫Í");
     }
@@ -231,6 +236,7 @@ public class GameManager : MonoSingleton<GameManager>
         RamanAmount = PlayerPrefs.GetInt("Raman", RamanAmount);
         DoshiAmount = PlayerPrefs.GetInt("Dosh", DoshiAmount);
         TriangleAmount = PlayerPrefs.GetInt("Triangle", TriangleAmount);
+        levolutionStack=PlayerPrefs.GetInt("LevolutionStack", levolutionStack);
         b = PlayerPrefs.GetString("CoinB", coinB.ToString());
         coinB = long.Parse(b);
         Debug.Log(pianoSpriteLevel);
@@ -271,6 +277,7 @@ public class GameManager : MonoSingleton<GameManager>
         {
             plCoin += Rpc;
         }
+
         else if(isDosh == true)
         {
             Rpc *= 2;
@@ -333,7 +340,7 @@ public class GameManager : MonoSingleton<GameManager>
     private void Update()
     {
         RpcTextUpdate();
-        RpsText.text = Rps.ToString();
+        RpsTextUpdate();
 
         if (Input.GetMouseButtonUp(0))
         {
@@ -365,9 +372,9 @@ public class GameManager : MonoSingleton<GameManager>
         {
             Rpc = ((RpcLevel1*100)+(RpcLevel2*2000)+(RpcLevel3*3000)+(RpcLevel4*4000)+(RpcLevel5*5000)+(RpcLevel6*6000)+(RpcLevel7*7000)+(RpcLevel8*8000)+(RpcLevel9*9000)+(RpcLevel10*10000) + 10)*3+(1000* RevolutionNum);
         }
-        else if(recorderStack == 15)
+        else if(recorderStack == 16)
         {
-            Rpc = ((RpcLevel1 * 100 + (RpcLevel2 * 2000) + (RpcLevel3 * 3000) + (RpcLevel4 * 4000) + (RpcLevel5 * 5000) + (RpcLevel6 * 6000) + (RpcLevel7 * 7000) + (RpcLevel8 * 8000) + (RpcLevel9 * 9000) + (RpcLevel10 * 10000) + 10) * 6 + micLevel * 1000 * micLevel) * 2 * +(1000 * RevolutionNum);
+            Rpc = (((RpcLevel1 * 100) + (RpcLevel2 * 2000) + (RpcLevel3 * 3000) + (RpcLevel4 * 4000) + (RpcLevel5 * 5000) + (RpcLevel6 * 6000) + (RpcLevel7 * 7000) + (RpcLevel8 * 8000) + (RpcLevel9 * 9000) + (RpcLevel10 * 10000) + 10) * 6 + (micLevel+1) * 1000 * (micLevel + 1)) * 2 * +(1000 * (RevolutionNum+1));
         }
         
 
@@ -400,14 +407,16 @@ public class GameManager : MonoSingleton<GameManager>
     {
         if (clickAct == true)
         {
-            float scalex = playerImage.transform.localScale.x;
-            float scaley = playerImage.transform.localScale.y;
-
-            playerImage.transform.DOScale(new UnityEngine.Vector2(playerImage.transform.localScale.x/200f, playerImage.transform.localScale.y/200f), 0.5f);
-            playerImage.transform.DOScale(new UnityEngine.Vector2(scalex, scaley), 0.5f);
-
+            StartCoroutine("SetSize");
         }
 
+    }
+
+    IEnumerator SetSize()
+    {
+        playerImage.transform.DOScale(new UnityEngine.Vector2(231, 231), 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        playerImage.transform.DOScale(new UnityEngine.Vector2(341, 341), 0.5f);
     }
 
     private void RpcTextUpdate()
@@ -419,7 +428,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (renderNum < 1000)
         {
-            coinTxt.text = renderNum.ToString();
+            RpcText.text = renderNum.ToString();
             return;
         }
 
@@ -533,10 +542,6 @@ public class GameManager : MonoSingleton<GameManager>
 
         MeshText.transform.position = new UnityEngine.Vector3(transpos.x, transpos.y, 0);
 
-        if (recorderStack == 15)
-        {
-            MeshText.transform.localScale = new UnityEngine.Vector3(1.5f, 1.5f, 0);
-        }
         StartCoroutine(MeshTextCool(MeshText,type));
      
     }
