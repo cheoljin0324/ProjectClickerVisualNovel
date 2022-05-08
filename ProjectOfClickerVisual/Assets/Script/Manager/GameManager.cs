@@ -414,9 +414,9 @@ public class GameManager : MonoSingleton<GameManager>
 
     IEnumerator SetSize()
     {
-        playerImage.transform.DOScale(new UnityEngine.Vector2(231, 231), 0.5f);
-        yield return new WaitForSeconds(0.5f);
-        playerImage.transform.DOScale(new UnityEngine.Vector2(341, 341), 0.5f);
+        playerImage.transform.DOScale(new UnityEngine.Vector2(261, 261), 0.1f);
+        yield return new WaitForSeconds(0.1f);
+        playerImage.transform.DOScale(new UnityEngine.Vector2(341, 341), 0.1f);
     }
 
     private void RpcTextUpdate()

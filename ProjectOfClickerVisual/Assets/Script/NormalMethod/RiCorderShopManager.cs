@@ -15,6 +15,8 @@ public class RiCorderShopManager : MonoBehaviour
     private GameObject errorPrefab;
     [SerializeField]
     private Transform gameObjectPosition;
+    [SerializeField]
+    private Text[] textLevel;
 
 
     private BigInteger level1Money = 1;
@@ -38,7 +40,24 @@ public class RiCorderShopManager : MonoBehaviour
     private void Start()
     {
         TextUpdate();
+        UpdateLevelText();
         LoadMoney();
+    }
+
+    private void UpdateLevelText()
+    {
+        textLevel[0].text = GameManager.Inst.RpcLevel1.ToString() + "Lv";
+        textLevel[1].text = GameManager.Inst.RpcLevel2.ToString() + "Lv";
+        textLevel[2].text = GameManager.Inst.RpcLevel3.ToString() + "Lv";
+        textLevel[3].text = GameManager.Inst.RpcLevel4.ToString() + "Lv";
+        textLevel[4].text = GameManager.Inst.RpcLevel5.ToString() + "Lv";
+        textLevel[5].text = GameManager.Inst.RpcLevel6.ToString() + "Lv";
+        textLevel[6].text = GameManager.Inst.RpcLevel7.ToString() + "Lv";
+        textLevel[7].text = GameManager.Inst.RpcLevel8.ToString() + "Lv";
+        textLevel[8].text = GameManager.Inst.RpcLevel9.ToString() + "Lv";
+        textLevel[9].text = GameManager.Inst.RpcLevel10.ToString() + "Lv";
+
+
     }
 
     private void SaveMoney()
@@ -116,6 +135,9 @@ public class RiCorderShopManager : MonoBehaviour
         GameManager.Inst.plCoin -= level1Money;
         level1Money = level1Money+GameManager.Inst.RpcLevel1 * (GameManager.Inst.RpcLevel1*2)*2;
         GameManager.Inst.RpcLevel1 += 1;
+        UpdateLevelText();
+
+
 
         RicorderUiUpdate();
         GameManager.Inst.SaveData();
@@ -137,6 +159,8 @@ public class RiCorderShopManager : MonoBehaviour
         GameManager.Inst.plCoin -= level2Money;
         level2Money = (level2Money + GameManager.Inst.RpcLevel2 * (GameManager.Inst.RpcLevel2 * 2)* 6);
         GameManager.Inst.RpcLevel2 += 1;
+        UpdateLevelText();
+
 
         RicorderUiUpdate();
         GameManager.Inst.SaveData();
@@ -155,6 +179,8 @@ public class RiCorderShopManager : MonoBehaviour
         GameManager.Inst.plCoin -= level3Money;
         level3Money = (level3Money + GameManager.Inst.RpcLevel3 * (GameManager.Inst.RpcLevel3 * 2) * 14);
         GameManager.Inst.RpcLevel3 += 1;
+        UpdateLevelText();
+
 
         RicorderUiUpdate();
         GameManager.Inst.SaveData();
@@ -173,6 +199,8 @@ public class RiCorderShopManager : MonoBehaviour
         GameManager.Inst.plCoin -= level4Money;
         level4Money = (level4Money = level4Money + GameManager.Inst.RpcLevel4 * (GameManager.Inst.RpcLevel4 * 2)* 30);
         GameManager.Inst.RpcLevel4 += 1;
+        UpdateLevelText();
+
 
         RicorderUiUpdate();
         GameManager.Inst.SaveData();
@@ -191,6 +219,8 @@ public class RiCorderShopManager : MonoBehaviour
         GameManager.Inst.plCoin -= level5Money;
         level5Money = (level5Money = level5Money + GameManager.Inst.RpcLevel5 * (GameManager.Inst.RpcLevel5 * 2) * 16);
         GameManager.Inst.RpcLevel5 += 1;
+        UpdateLevelText();
+
 
         RicorderUiUpdate();
         GameManager.Inst.SaveData();
@@ -210,6 +240,8 @@ public class RiCorderShopManager : MonoBehaviour
         level6Money = (level6Money = level6Money + GameManager.Inst.RpcLevel6 * (GameManager.Inst.RpcLevel6 * 2) * 18);
         Debug.Log(level6Money);
         GameManager.Inst.RpcLevel6 += 1;
+        UpdateLevelText();
+
 
         RicorderUiUpdate();
         GameManager.Inst.SaveData();
@@ -228,6 +260,8 @@ public class RiCorderShopManager : MonoBehaviour
         GameManager.Inst.plCoin -= level7Money;
         level7Money = (level7Money + GameManager.Inst.RpcLevel7 * (GameManager.Inst.RpcLevel7 * 2)) * 20;
         GameManager.Inst.RpcLevel7 += 1;
+        UpdateLevelText();
+
 
         RicorderUiUpdate();
         GameManager.Inst.SaveData();
@@ -246,6 +280,8 @@ public class RiCorderShopManager : MonoBehaviour
         GameManager.Inst.plCoin -= level8Money;
         level8Money = (level8Money + GameManager.Inst.RpcLevel8 * (GameManager.Inst.RpcLevel8 * 2))  * 22;
         GameManager.Inst.RpcLevel8 += 1;
+        UpdateLevelText();
+
 
         RicorderUiUpdate();
         GameManager.Inst.SaveData();
@@ -266,6 +302,8 @@ public class RiCorderShopManager : MonoBehaviour
         GameManager.Inst.plCoin -= level9Money;
         level9Money = (level9Money + GameManager.Inst.RpcLevel9 * (GameManager.Inst.RpcLevel9 * 2))*24;
         GameManager.Inst.RpcLevel9 += 1;
+        UpdateLevelText();
+
 
         RicorderUiUpdate();
         GameManager.Inst.SaveData();
@@ -287,6 +325,8 @@ public class RiCorderShopManager : MonoBehaviour
         GameManager.Inst.plCoin -= level10Money;
         level10Money = (level10Money + GameManager.Inst.RpcLevel10 * (GameManager.Inst.RpcLevel10 * 2)*26);
         GameManager.Inst.RpcLevel10 += 1;
+        UpdateLevelText();
+
 
         RicorderUiUpdate();
         GameManager.Inst.SaveData();
