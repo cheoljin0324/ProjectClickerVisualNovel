@@ -54534,7 +54534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodScroolingPosition: {fileID: 1346056108}
   beforeFoodTransform: {fileID: 658253102}
-  foodMethodA: {fileID: 0}
+  foodMethodA: {fileID: 1895338444}
 --- !u!1 &1566012623
 GameObject:
   m_ObjectHideFlags: 0
@@ -63491,8 +63491,8 @@ MonoBehaviour:
   triangleButton: {fileID: 342134939}
   DoshiracButton: {fileID: 1818353044}
   ramanCoolImage: {fileID: 2126388886}
-  triangleCoolImage: {fileID: 0}
-  DoshiracCoolImage: {fileID: 0}
+  triangleCoolImage: {fileID: 342134937}
+  DoshiracCoolImage: {fileID: 1818353045}
   ramanImage: {fileID: 218579616}
   triangleImage: {fileID: 1893634002}
   DoshiracImage: {fileID: 741081923}

@@ -38,29 +38,29 @@ public class ItemButtonnAnimation : MonoBehaviour
         {
             if (GameManager.Inst.RamanAmount > 0)
             {
-                itemButton[0].image.DOFade(0.2f, 1f);
+                itemButton[0].image.DOFade(1f, 1f);
             }
             else
             {
-                itemButton[0].image.DOFade(0.2f, 1f);
+                itemButton[0].image.DOFade(1f, 1f);
             }
 
             if (GameManager.Inst.TriangleAmount > 0)
             {
-                itemButton[1].image.DOFade(0.2f, 1f);
+                itemButton[1].image.DOFade(1f, 1f);
             }
             else
             {
-                itemButton[1].image.DOFade(0.2f, 1f);
+                itemButton[1].image.DOFade(1f, 1f);
             }
 
             if (GameManager.Inst.DoshiAmount > 0)
             {
-                itemButton[2].image.DOFade(0.2f, 1f);
+                itemButton[2].image.DOFade(1f, 1f);
             }
             else
             {
-                itemButton[2].image.DOFade(0.2f, 1f);
+                itemButton[2].image.DOFade(1f, 1f);
             }
 
             itemButton[0].transform.DOMove(new Vector3(buttonTransform[0].position.x, buttonTransform[0].position.y, buttonTransform[0].position.z), 1f, false);
