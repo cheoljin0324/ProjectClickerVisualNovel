@@ -1232,7 +1232,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1681046672}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &65806519
 MonoBehaviour:
@@ -4967,7 +4967,7 @@ Transform:
   - {fileID: 388437960}
   - {fileID: 540927150}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &193335069
 GameObject:
@@ -14878,7 +14878,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &524314856
 GameObject:
@@ -15329,50 +15329,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538683028}
   m_CullTransparentMesh: 1
---- !u!1 &540815156
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 540815157}
-  - component: {fileID: 540815158}
-  m_Layer: 0
-  m_Name: RevolManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &540815157
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 540815156}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1681046672}
-  m_RootOrder: 10
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &540815158
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 540815156}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09c0da4f1ca3b7043b9b462ca99518d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  revolButton: {fileID: 2078639298}
 --- !u!1 &540927149
 GameObject:
   m_ObjectHideFlags: 0
@@ -29340,7 +29296,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &899128243
 GameObject:
@@ -40220,7 +40176,7 @@ Transform:
   - {fileID: 1356195456}
   - {fileID: 1545779307}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1246331946
 GameObject:
@@ -45024,7 +44980,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &1248835706
 GameObject:
@@ -45326,6 +45282,7 @@ GameObject:
   - component: {fileID: 1261962724}
   - component: {fileID: 1261962725}
   - component: {fileID: 1261962726}
+  - component: {fileID: 1261962727}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -45344,8 +45301,8 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1681046672}
-  m_RootOrder: 7
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1261962725
 MonoBehaviour:
@@ -45367,6 +45324,7 @@ MonoBehaviour:
   useDoshi: 0
   TestError: {fileID: 0}
   ricorderShop: {fileID: 2121621810}
+  NowLoadScene: 0
   isTuto: 0
   isMain: 1
   RpcLevel1: 1
@@ -45546,6 +45504,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1261962727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1261962723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f709c8db2c2430948ade2ef1953b6332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FoxObject: {fileID: 1908188930}
+  FadeSprite: {fileID: 0}
+  SpriteArray:
+  - {fileID: 21300000, guid: e74077012820788408543537c2c19829, type: 3}
+  - {fileID: 21300000, guid: 3343497ca1d51d542aa9115fdbeba20e, type: 3}
+  - {fileID: 21300000, guid: 2828703a0da19e24a8091859c5d01c35, type: 3}
+  revolData: {fileID: 0}
 --- !u!1 &1262383559
 GameObject:
   m_ObjectHideFlags: 0
@@ -54409,7 +54386,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1560197894
 GameObject:
@@ -56940,7 +56917,7 @@ Transform:
   m_LocalScale: {x: 1.1919, y: 1.2931, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1660741213
 GameObject:
@@ -57443,10 +57420,8 @@ Transform:
   - {fileID: 1977421298}
   - {fileID: 1929657801}
   - {fileID: 109604242}
-  - {fileID: 1261962724}
   - {fileID: 1757010851}
   - {fileID: 65806518}
-  - {fileID: 540815157}
   m_Father: {fileID: 1970472880}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -58110,7 +58085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2448492491908572861, guid: 03c420938aae0f34d984792e0099d3ee, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 3
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 2448492491908572861, guid: 03c420938aae0f34d984792e0099d3ee, type: 3}
       propertyPath: m_SizeDelta.y
@@ -59048,7 +59023,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1681046672}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1761692796
 GameObject:
@@ -60677,6 +60652,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1803834324}
   m_CullTransparentMesh: 1
+--- !u!1 &1808138207
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1808138209}
+  - component: {fileID: 1808138208}
+  m_Layer: 0
+  m_Name: RevolData
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1808138208
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808138207}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5b836cf7339e3489a07854af4c0380, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  FoxLevel: 1
+--- !u!4 &1808138209
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1808138207}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.103070475, y: -0.12958305, z: 120.969025}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1808161851
 GameObject:
   m_ObjectHideFlags: 0
@@ -63594,7 +63613,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1895338446
 MonoBehaviour:
@@ -66040,7 +66059,7 @@ Transform:
   - {fileID: 1681046672}
   - {fileID: 1924660879}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1974335420
 GameObject:
@@ -72665,7 +72684,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
 --- !u!1 &2027621907
 GameObject:
@@ -73902,9 +73921,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 540815158}
-        m_TargetAssemblyTypeName: Revolution, Assembly-CSharp
-        m_MethodName: RevolSet
+      - m_Target: {fileID: 1261962727}
+        m_TargetAssemblyTypeName: RevolutionManager, Assembly-CSharp
+        m_MethodName: LevelUP
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -73927,7 +73946,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.49019608}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
