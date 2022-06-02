@@ -16,40 +16,19 @@ public class RevolutionManager : MonoBehaviour
     [SerializeField]
     private Sprite[] SpriteArray;
 
-    public Revolutiondata revolData;
+    GameManager gameManager;
 
-
-
-    public void LevelUP()
+    private void Awake()
     {
-        if (revolData.FoxLevel == 1)
-        {
-            revolData.FoxLevel += 1;
-            StartCoroutine(RevolustionTrans());
-            SceneManager.LoadScene("RevolutionScene");
-            DontDestroyOnLoad(revolData);
-
-            SpriteSet(1);
-        }
-        else if(revolData.FoxLevel == 2)
-        {
-            revolData.FoxLevel += 1;
-            StartCoroutine(RevolustionTrans());
-            SceneManager.LoadScene("RevolutionScene");
-            DontDestroyOnLoad(revolData);
-
-            SpriteSet(2);
-        }
+        gameManager = GetComponent<GameManager>();
     }
 
-    IEnumerator RevolustionTrans()
+    void SetRevolution()
     {
-        FadeSprite.DOFade(1, 1f);
-        yield return new WaitForSeconds(1f);
-    }
-    void SpriteSet(int seti)
-    {
-        FoxObject.sprite = SpriteArray[seti];
+        if (gameManager.FoxLevel > 3)
+        {
+            FadeSprite.DOFade(1f, 1f);
+        }
     }
 
 }
