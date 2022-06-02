@@ -141,6 +141,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     public int RevolutionNum = 0;
 
+    public int FoxLevel = 0;
+
     public int levolutionStack = 0;
 
     public void ExitGame()

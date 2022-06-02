@@ -86,10 +86,11 @@
     <Compile Include="Assets\Script\NormalMethod\ScrollFood.cs" />
     <Compile Include="Assets\Script\TestCode\FoodContentParantTest.cs" />
     <Compile Include="Assets\Script\Manager\ScroolFood.cs" />
+    <Compile Include="Assets\Script\NormalMethod\Revolution.cs" />
     <Compile Include="Assets\Script\NormalMethod\TMP.cs" />
     <Compile Include="Assets\Script\TestCode\GenerateObjectTest.cs" />
     <Compile Include="Assets\Script\Manager\CreateQuest.cs" />
-    <Compile Include="Assets\Script\NormalMethod\Revolution.cs" />
+    <Compile Include="Assets\Script\Manager\RevolutionManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
